@@ -1,0 +1,8 @@
+.build
+.idea
+.svn
+build
+public
+vendor
+build.properties.local
+composer.lock
