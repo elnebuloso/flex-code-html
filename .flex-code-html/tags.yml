@@ -1,0 +1,75 @@
+---
+tags:
+- name: script
+  link: http://www.w3schools.com/tags/tag_script.asp
+  shortDescription: The <script> tag is used to define a client-side script, such as a JavaScript.
+  longDescription: The <script> element either contains scripting statements, or it points to an external script file through the src attribute. Common uses for JavaScript are image manipulation, form validation, and dynamic changes of content.
+  attributes:
+  - name: async
+    description: Specifies that the script is executed asynchronously (only for external scripts)
+    flag: true
+    html5: true
+  - name: charset
+    description: Specifies the character encoding used in an external script file
+    default: UTF-8
+  - name: defer
+    description: Specifies that the script is executed when the page has finished parsing (only for external scripts)
+    flag: true
+  - name: src
+    description: Specifies the URL of an external script file
+  - name: type
+    description: Specifies the media type of the script
+  - name: xml:space
+    description: Not supported in HTML5. Specifies whether whitespace in code should be preserved
+    html5Support: false
+- name: link
+  link: http://www.w3schools.com/tags/tag_link.asp
+  shortDescription: The <link> tag defines a link between a document and an external resource.
+  longDescription: The <link> tag is used to link to external style sheets.
+  void: true
+  attributes:
+  - name: charset
+    description: Not supported in HTML5. Specifies the character encoding of the linked document
+    html5Support: false
+  - name: crossorigin
+    description: Specifies how the element handles cross-origin requests
+    html5: true
+  - name: href
+    description: Specifies the location of the linked document
+  - name: hreflang
+    description: Specifies the language of the text in the linked document
+  - name: media
+    description: Specifies on what device the linked document will be displayed
+  - name: rel
+    description: Required. Specifies the relationship between the current document and the linked document
+  - name: rev
+    description: Not supported in HTML5. Specifies the relationship between the linked document and the current document
+    html5Support: false
+  - name: sizes
+    description: Specifies the size of the linked resource. Only for rel="icon"
+    html5: true
+  - name: target
+    description: Not supported in HTML5. Specifies where the linked document is to be loaded
+    html5Support: false
+  - name: type
+    description: Specifies the media type of the linked document
+- name: div
+  link: http://www.w3schools.com/tags/tag_div.asp
+  shortDescription: The <div> tag defines a division or a section in an HTML document.
+  longDescription: The <div> tag is used to group block-elements to format them with CSS.
+  attributes:
+  - name: align
+    description: Not supported in HTML5. Specifies the alignment of the content inside a <div> element
+    html5Support: false
+- name: template
+  link:
+  shortDescription:
+  longDescription:
+  void: false
+  attributes:
+  - name: template
+    description:
+    default:
+    flag: true
+    html5: true
+    html5Support: false

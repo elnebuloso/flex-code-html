@@ -16,6 +16,13 @@
     "require": {
         "php": ">=5.3.0"
     },
+    "require-dev": {
+        "elnebuloso/flex-data": "~2.6",
+        "elnebuloso\/flex-converter": "~2.2",
+        "symfony/yaml": "~2.7",
+        "symfony\/console": "~2.5",
+        "zendframework\/zend-code": "~2.3"
+    },
     "autoload": {
         "psr-0": {
             "Flex\\": "src\/"
@@ -25,5 +32,8 @@
         "psr-0": {
             "FlexTest\\": "tests\/src\/"
         }
-    }
+    },
+    "bin": [
+        "bin\/flex-code-html-generator"
+    ]
 }

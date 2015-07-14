@@ -1,5 +1,5 @@
 <?php
-namespace Flex\Code\Html;
+namespace Flex\Code\Html\Tag;
 
 use InvalidArgumentException;
 

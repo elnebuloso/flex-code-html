@@ -1,5 +1,5 @@
 <?php
-namespace Flex\Code\Html;
+namespace Flex\Code\Html\Tag;
 
 /**
  * Class AbstractTag
@@ -15,24 +15,14 @@ class AbstractTag implements TagInterface
     protected $name;
 
     /**
-     * @var bool
-     */
-    protected $isVoid = false;
-
-    /**
      * @var string
      */
     protected $doctype = TagInterface::DOCTYPE_HTML5;
 
     /**
-     * @var array
+     * @var bool
      */
-    protected $allowedAttributes = array();
-
-    /**
-     * @var array
-     */
-    protected $allowedFlags = array();
+    protected $isVoid = false;
 
     /**
      * @var array
@@ -42,44 +32,22 @@ class AbstractTag implements TagInterface
     /**
      * @var array
      */
-    protected $customAttributes = array();
+    protected $flags = array();
+
+    /**
+     * @var array
+     */
+    protected $flagsHtml5 = array();
+
+    /**
+     * @var array
+     */
+    protected $flagsHtml5NoSupport = array();
 
     /**
      * @var array
      */
     protected $children = array();
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isVoid()
-    {
-        return $this->isVoid;
-    }
-
-    /**
-     * @return array
-     */
-    public function getAllowedAttributes()
-    {
-        return $this->allowedAttributes;
-    }
-
-    /**
-     * @return array
-     */
-    public function getAllowedFlags()
-    {
-        return $this->allowedFlags;
-    }
 
     /**
      * @param string $doctype
@@ -92,47 +60,24 @@ class AbstractTag implements TagInterface
     }
 
     /**
-     * @return string
+     * @param string $name
+     * @param string $value
+     * @return $this
      */
-    public function getDoctype()
+    public function setAttribute($name, $value)
     {
-        return $this->doctype;
+        $this->attributes[$name] = $value;
+        return $this;
     }
 
     /**
      * @param array $attributes
      * @return $this
      */
-    public function setAttributes(array $attributes)
+    public function setAttributes(array $attributes = array())
     {
         $this->attributes = $attributes;
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getAttributes()
-    {
-        return $this->attributes;
-    }
-
-    /**
-     * @param array $customAttributes
-     * @return $this
-     */
-    public function setCustomAttributes(array $customAttributes)
-    {
-        $this->customAttributes = $customAttributes;
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getCustomAttributes()
-    {
-        return $this->customAttributes;
     }
 
     /**
@@ -146,22 +91,6 @@ class AbstractTag implements TagInterface
     }
 
     /**
-     * @return array
-     */
-    public function getChildren()
-    {
-        return $this->children;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasChildren()
-    {
-        return count($this->getChildren()) > 0;
-    }
-
-    /**
      * @return $this
      */
     public static function create()
@@ -172,24 +101,19 @@ class AbstractTag implements TagInterface
     /**
      * @return string
      */
-    public function __toString()
-    {
-        return $this->render();
-    }
-
-    /**
-     * @return string
-     */
     public function render()
     {
-        $tag = array();
-        $tag[] = '<' . $this->getName();
-
-        $attributes = array_merge($this->getAttributes(), $this->getCustomAttributes());
+        $diff = array_combine(array_values($this->flags), array_values($this->flags));
+        $attributes = $this->attributes;
+        $attributes = array_diff_key($attributes, $diff);
         $attributes = $this->renderAttributes($attributes);
 
-        $flags = array_merge($this->getAttributes(), $this->getCustomAttributes());
+        $flags = $this->attributes;
+        $flags = array_intersect_key($flags, $diff);
         $flags = $this->renderFlags($flags);
+
+        $tag = array();
+        $tag[] = '<' . $this->name;
 
         if (!empty($attributes)) {
             $tag[] = ' ' . $attributes;
@@ -199,14 +123,14 @@ class AbstractTag implements TagInterface
             $tag[] = ' ' . $flags;
         }
 
-        if ($this->isVoid() && $this->getDoctype() == TagInterface::DOCTYPE_XHTML) {
+        if ($this->isVoid && $this->doctype == TagInterface::DOCTYPE_XHTML) {
             $tag[] = ' />';
-        } elseif ($this->isVoid()) {
+        } elseif ($this->isVoid) {
             $tag[] = '>';
-        } elseif (!$this->isVoid() && $this->hasChildren()) {
+        } elseif (!$this->isVoid && $this->hasChildren()) {
             $tag[] = '>';
 
-            foreach ($this->getChildren() as $child) {
+            foreach ($this->children as $child) {
                 if ($child instanceof TagInterface) {
                     $tag[] = $child->render();
                 } elseif (!is_object($child)) {
@@ -218,12 +142,28 @@ class AbstractTag implements TagInterface
                 }
             }
 
-            $tag[] = '</' . $this->getName() . '>';
+            $tag[] = '</' . $this->name . '>';
         } else {
-            $tag[] = '></' . $this->getName() . '>';
+            $tag[] = '></' . $this->name . '>';
         }
 
         return implode(null, $tag);
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->render();
+    }
+
+    /**
+     * @return bool
+     */
+    protected function hasChildren()
+    {
+        return count($this->children) > 0;
     }
 
     /**
@@ -233,7 +173,6 @@ class AbstractTag implements TagInterface
     protected function renderAttributes(array $attributes)
     {
         $attributes = array_filter($attributes);
-        $attributes = array_intersect_key($attributes, $this->getAllowedAttributes());
         ksort($attributes);
 
         array_walk($attributes, create_function('&$i,$k', '$i="$k=\"$i\"";'));
@@ -248,13 +187,10 @@ class AbstractTag implements TagInterface
     protected function renderFlags(array $flags)
     {
         $flags = array_filter($flags);
-        $flags = array_intersect_key($flags, $this->getAllowedFlags());
+        $flags = array_combine(array_keys($flags), array_keys($flags));
         ksort($flags);
 
-        // In XHTML, attribute minimization is forbidden
-        $flags = array_combine(array_keys($flags), array_keys($flags));
-
-        if ($this->getDoctype() == TagInterface::DOCTYPE_XHTML) {
+        if ($this->doctype == TagInterface::DOCTYPE_XHTML) {
             array_walk($flags, create_function('&$i,$k', '$i="$k=\"$i\"";'));
         } else {
             $flags = array_keys($flags);

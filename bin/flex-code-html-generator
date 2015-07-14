@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+use Flex\Code\Html\Generator\TagGeneratorCommand;
+use Symfony\Component\Console\Application;
+
+// error reporting
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 'on');
+
+try {
+    $root = getcwd();
+
+    if (($autoloader = realpath(__DIR__ . '/../vendor/autoload.php')) === false) {
+        if (($autoloader = realpath(__DIR__ . '/../../../../vendor/autoload.php')) === false) {
+            throw new Exception("Unable to determine autoloader.", 100);
+        }
+    }
+
+    // autoloading
+    require_once $autoloader;
+
+    // this makes our life easier when dealing with paths.
+    // everything is relative to the application root now.
+    chdir($root);
+
+    $console = new Application();
+    $command = new TagGeneratorCommand();
+    $console->add($command);
+
+    exit($console->run());
+} catch (Exception $e) {
+    echo $e->getMessage() . PHP_EOL;
+    exit($e->getCode());
+}

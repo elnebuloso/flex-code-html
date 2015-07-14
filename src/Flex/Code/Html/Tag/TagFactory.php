@@ -1,5 +1,5 @@
 <?php
-namespace Flex\Code\Html;
+namespace Flex\Code\Html\Tag;
 
 /**
  * Class TagFactory
@@ -18,8 +18,9 @@ class TagFactory
      * @var array
      */
     protected $tags = array(
-        TagInterface::TAG_SCRIPT => '\Flex\Code\Html\Tag\Script',
-        TagInterface::TAG_LINK => '\Flex\Code\Html\Tag\Link'
+        'div' => '\Flex\Code\Html\Tag\Element\Link',
+        'link' => '\Flex\Code\Html\Tag\Element\Link',
+        'script' => '\Flex\Code\Html\Tag\Element\Script'
     );
 
     /**
@@ -31,26 +32,10 @@ class TagFactory
     }
 
     /**
-     * @param string $doctype
-     */
-    public function setDoctype($doctype)
-    {
-        $this->doctype = $doctype;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDoctype()
-    {
-        return $this->doctype;
-    }
-
-    /**
      * @param string $tag
      * @param array $attributes
      * @throws TagFactoryException
-     * @return \Flex\Code\Html\TagInterface
+     * @return TagInterface
      */
     public function create($tag, array $attributes = array())
     {
