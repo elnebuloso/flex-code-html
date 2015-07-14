@@ -258,8 +258,8 @@ class TagGenerator
      */
     protected function addAttribute(ClassGenerator $class, TagAttribute $tagAttribute)
     {
-        $methodName = str_replace(':', '_', $tagAttribute->getName());
-        $methodName = ucfirst($this->converter->convert($methodName));
+        $methodName = str_replace(':', '-', $tagAttribute->getName());
+        $methodName = ucfirst($this->converter->convert($methodName, '-'));
 
         $method = new MethodGenerator();
 

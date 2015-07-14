@@ -61,6 +61,32 @@ tags:
   - name: align
     description: Not supported in HTML5. Specifies the alignment of the content inside a <div> element
     html5Support: false
+- name: form
+  link: http://www.w3schools.com/tags/tag_form.asp
+  shortDescription: The <form> tag is used to create an HTML form for user input.
+  longDescription:
+  void: false
+  attributes:
+  - name: accept
+    description: Not supported in HTML5. Specifies a comma-separated list of file types  that the server accepts (that can be submitted through the file upload)
+    html5Support: false
+  - name: accept-charset
+    description: Specifies the character encodings that are to be used for the form submission
+  - name: action
+    description: Specifies where to send the form-data when a form is submitted
+  - name: autocomplete
+    html5: true
+  - name: enctype
+    description: Specifies how the form-data should be encoded when submitting it to the server (only for method="post")
+  - name: method
+    description: Specifies the HTTP method to use when sending form-data
+  - name: name
+    description: Specifies the name of a form
+  - name: novalidate
+    description: Specifies that the form should not be validated when submitted
+    html5: true
+  - name: target
+    description: Specifies where to display the response that is received after submitting the form
 - name: template
   link:
   shortDescription:
