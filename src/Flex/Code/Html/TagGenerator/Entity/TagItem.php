@@ -1,5 +1,5 @@
 <?php
-namespace Flex\Code\Html\Generator\Entity;
+namespace Flex\Code\Html\TagGenerator\Entity;
 
 use Flex\Code\Html\Tag\TagInterface;
 use Flex\Data\AbstractRecursiveObject;

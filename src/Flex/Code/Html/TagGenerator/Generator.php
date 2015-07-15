@@ -1,9 +1,9 @@
 <?php
-namespace Flex\Code\Html\Generator;
+namespace Flex\Code\Html\TagGenerator;
 
-use Flex\Code\Html\Generator\Entity\TagAttribute;
-use Flex\Code\Html\Generator\Entity\TagItem;
 use Flex\Code\Html\Tag\TagInterface;
+use Flex\Code\Html\TagGenerator\Entity\TagAttribute;
+use Flex\Code\Html\TagGenerator\Entity\TagItem;
 use Flex\Converter\StringToCamelCase;
 use Zend\Code\Generator\ClassGenerator;
 use Zend\Code\Generator\DocBlock\Tag\GenericTag;
@@ -18,7 +18,7 @@ use Zend\Code\Generator\PropertyGenerator;
  *
  * @author Jeff Tunessen <jeff.tunessen@gmail.com>
  */
-class TagGenerator
+class Generator
 {
 
     /**

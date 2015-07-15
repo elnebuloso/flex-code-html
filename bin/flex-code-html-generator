@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-use Flex\Code\Html\Generator\TagGeneratorCommand;
+use Flex\Code\Html\TagGenerator\GeneratorCommand;
 use Symfony\Component\Console\Application;
 
 // error reporting
@@ -24,7 +24,7 @@ try {
     chdir($root);
 
     $console = new Application();
-    $command = new TagGeneratorCommand();
+    $command = new GeneratorCommand();
     $console->add($command);
 
     exit($console->run());
