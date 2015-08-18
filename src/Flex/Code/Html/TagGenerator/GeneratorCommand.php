@@ -13,7 +13,6 @@ use Symfony\Component\Yaml\Parser;
  */
 class GeneratorCommand extends Command
 {
-
     /**
      * @var string
      */

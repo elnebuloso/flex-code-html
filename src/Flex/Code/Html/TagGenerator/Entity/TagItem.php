@@ -11,7 +11,6 @@ use Flex\Data\AbstractRecursiveObject;
  */
 class TagItem extends AbstractRecursiveObject
 {
-
     /**
      * @var TagAttribute[]
      */
@@ -37,8 +36,8 @@ class TagItem extends AbstractRecursiveObject
     public function getRecordDefaults()
     {
         return array(
-            'doctype' => TagInterface::DOCTYPE_HTML5,
-            'void' => false,
+            'doctype'    => TagInterface::DOCTYPE_HTML5,
+            'void'       => false,
             'attributes' => array()
         );
     }

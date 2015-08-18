@@ -10,16 +10,13 @@ use Flex\Data\AbstractRecursiveObject;
  */
 class TagAttribute extends AbstractRecursiveObject
 {
-
     /**
      * @return array
      */
     public function getRecordDefaults()
     {
         return array(
-            'flag' => false,
-            'html5' => false,
-            'html5Support' => true
+            'flag' => false
         );
     }
 
@@ -40,34 +37,10 @@ class TagAttribute extends AbstractRecursiveObject
     }
 
     /**
-     * @return string|null
-     */
-    public function getDefault()
-    {
-        return $this->getRecordValue('default');
-    }
-
-    /**
      * @return bool
      */
     public function isFlag()
     {
         return $this->getRecordValue('flag', false) === true;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isHtml5()
-    {
-        return $this->getRecordValue('html5', false) === true;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isHtml5Support()
-    {
-        return $this->getRecordValue('html5Support', true) === true;
     }
 }

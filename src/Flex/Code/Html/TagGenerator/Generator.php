@@ -20,16 +20,15 @@ use Zend\Code\Generator\PropertyGenerator;
  */
 class Generator
 {
-
     /**
      * @var array
      */
-    private $data = array();
+    protected $data = array();
 
     /**
      * @var StringToCamelCase
      */
-    private $converter;
+    protected $stringToCamelCaseConverter;
 
     /**
      * @param array $data
@@ -37,7 +36,7 @@ class Generator
     public function __construct(array $data)
     {
         $this->data = $data;
-        $this->converter = new StringToCamelCase();
+        $this->stringToCamelCaseConverter = new StringToCamelCase();
     }
 
     /**
@@ -66,8 +65,8 @@ class Generator
         $this->addPropertyIsVoid($class, $tagItem);
         $this->addPropertyAttributes($class, $tagItem);
         $this->addPropertyFlags($class, $tagItem);
-        $this->addPropertyFlagsHtml5($class, $tagItem);
-        $this->addPropertyFlagsHtml5NoSupport($class, $tagItem);
+//        $this->addPropertyFlagsHtml5($class, $tagItem);
+//        $this->addPropertyFlagsHtml5NoSupport($class, $tagItem);
         $this->addAttributes($class, $tagItem);
         $this->writeClass($class);
     }
@@ -78,7 +77,7 @@ class Generator
      */
     protected function createClass(TagItem $tagItem)
     {
-        $className = ucfirst($this->converter->convert($tagItem->getName()));
+        $className = ucfirst($this->stringToCamelCaseConverter->convert($tagItem->getName()));
         $class = new ClassGenerator();
         $class->setNamespaceName('Flex\Code\Html\Tag\Element');
         $class->setName($className);
@@ -120,9 +119,8 @@ class Generator
 
     /**
      * @param ClassGenerator $class
-     * @param TagItem $tagItem
      */
-    public function addPropertyDoctype(ClassGenerator $class, TagItem $tagItem)
+    public function addPropertyDoctype(ClassGenerator $class)
     {
         $property = new PropertyGenerator('doctype', TagInterface::DOCTYPE_HTML5, PropertyGenerator::FLAG_PROTECTED);
 
@@ -150,9 +148,8 @@ class Generator
 
     /**
      * @param ClassGenerator $class
-     * @param TagItem $tagItem
      */
-    protected function addPropertyAttributes(ClassGenerator $class, TagItem $tagItem)
+    protected function addPropertyAttributes(ClassGenerator $class)
     {
         $property = new PropertyGenerator('attributes', array(), PropertyGenerator::FLAG_PROTECTED);
 
@@ -189,57 +186,57 @@ class Generator
         $class->addPropertyFromGenerator($property);
     }
 
-    /**
-     * @param ClassGenerator $class
-     * @param TagItem $tagItem
-     */
-    protected function addPropertyFlagsHtml5(ClassGenerator $class, TagItem $tagItem)
-    {
-        $flags = array();
+//    /**
+//     * @param ClassGenerator $class
+//     * @param TagItem $tagItem
+//     */
+//    protected function addPropertyFlagsHtml5(ClassGenerator $class, TagItem $tagItem)
+//    {
+//        $flags = array();
+//
+//        foreach ($tagItem->getTagAttributes() as $tagAttribute) {
+//            if ($tagAttribute->isHtml5()) {
+//                $flags[] = $tagAttribute->getName();
+//            }
+//        }
+//
+//        sort($flags);
+//
+//        $property = new PropertyGenerator('flagsHtml5', array(), PropertyGenerator::FLAG_PROTECTED);
+//        $property->setDefaultValue($flags);
+//
+//        $docBlock = new DocBlockGenerator();
+//        $docBlock->setTag(new GenericTag('var', 'array'));
+//
+//        $property->setDocBlock($docBlock);
+//        $class->addPropertyFromGenerator($property);
+//    }
 
-        foreach ($tagItem->getTagAttributes() as $tagAttribute) {
-            if ($tagAttribute->isHtml5()) {
-                $flags[] = $tagAttribute->getName();
-            }
-        }
-
-        sort($flags);
-
-        $property = new PropertyGenerator('flagsHtml5', array(), PropertyGenerator::FLAG_PROTECTED);
-        $property->setDefaultValue($flags);
-
-        $docBlock = new DocBlockGenerator();
-        $docBlock->setTag(new GenericTag('var', 'array'));
-
-        $property->setDocBlock($docBlock);
-        $class->addPropertyFromGenerator($property);
-    }
-
-    /**
-     * @param ClassGenerator $class
-     * @param TagItem $tagItem
-     */
-    protected function addPropertyFlagsHtml5NoSupport(ClassGenerator $class, TagItem $tagItem)
-    {
-        $flags = array();
-
-        foreach ($tagItem->getTagAttributes() as $tagAttribute) {
-            if (!$tagAttribute->isHtml5Support()) {
-                $flags[] = $tagAttribute->getName();
-            }
-        }
-
-        sort($flags);
-
-        $property = new PropertyGenerator('flagsHtml5NoSupport', array(), PropertyGenerator::FLAG_PROTECTED);
-        $property->setDefaultValue($flags);
-
-        $docBlock = new DocBlockGenerator();
-        $docBlock->setTag(new GenericTag('var', 'array'));
-
-        $property->setDocBlock($docBlock);
-        $class->addPropertyFromGenerator($property);
-    }
+//    /**
+//     * @param ClassGenerator $class
+//     * @param TagItem $tagItem
+//     */
+//    protected function addPropertyFlagsHtml5NoSupport(ClassGenerator $class, TagItem $tagItem)
+//    {
+//        $flags = array();
+//
+//        foreach ($tagItem->getTagAttributes() as $tagAttribute) {
+//            if (!$tagAttribute->isHtml5Support()) {
+//                $flags[] = $tagAttribute->getName();
+//            }
+//        }
+//
+//        sort($flags);
+//
+//        $property = new PropertyGenerator('flagsHtml5NoSupport', array(), PropertyGenerator::FLAG_PROTECTED);
+//        $property->setDefaultValue($flags);
+//
+//        $docBlock = new DocBlockGenerator();
+//        $docBlock->setTag(new GenericTag('var', 'array'));
+//
+//        $property->setDocBlock($docBlock);
+//        $class->addPropertyFromGenerator($property);
+//    }
 
     /**
      * @param ClassGenerator $class
@@ -259,7 +256,7 @@ class Generator
     protected function addAttribute(ClassGenerator $class, TagAttribute $tagAttribute)
     {
         $methodName = str_replace(':', '-', $tagAttribute->getName());
-        $methodName = ucfirst($this->converter->convert($methodName, '-'));
+        $methodName = ucfirst($this->stringToCamelCaseConverter->convert($methodName, '-'));
 
         $method = new MethodGenerator();
 
@@ -268,24 +265,25 @@ class Generator
             $method->setParameter(new ParameterGenerator('v', 'bool', true));
         } else {
             $method->setName('set' . $methodName);
-            $method->setParameter(new ParameterGenerator('v', 'string', $tagAttribute->getDefault()));
+//            $method->setParameter(new ParameterGenerator('v', 'string', $tagAttribute->getDefault()));
+            $method->setParameter(new ParameterGenerator('v', 'string'));
         }
 
         $body = array();
-
-        if ($tagAttribute->isHtml5()) {
-            $body[] = 'if($this->doctype != TagInterface::DOCTYPE_HTML5 && in_array(\'' . $tagAttribute->getName() . '\', $this->flagsHtml5)) {';
-            $body[] = 'return $this;';
-            $body[] = '}';
-            $body[] = '';
-        }
-
-        if (!$tagAttribute->isHtml5Support()) {
-            $body[] = 'if($this->doctype == TagInterface::DOCTYPE_HTML5 && in_array(\'' . $tagAttribute->getName() . '\', $this->flagsHtml5NoSupport)) {';
-            $body[] = 'return $this;';
-            $body[] = '}';
-            $body[] = '';
-        }
+//
+//        if ($tagAttribute->isHtml5()) {
+//            $body[] = 'if($this->doctype != TagInterface::DOCTYPE_HTML5 && in_array(\'' . $tagAttribute->getName() . '\', $this->flagsHtml5)) {';
+//            $body[] = 'return $this;';
+//            $body[] = '}';
+//            $body[] = '';
+//        }
+//
+//        if (!$tagAttribute->isHtml5Support()) {
+//            $body[] = 'if($this->doctype == TagInterface::DOCTYPE_HTML5 && in_array(\'' . $tagAttribute->getName() . '\', $this->flagsHtml5NoSupport)) {';
+//            $body[] = 'return $this;';
+//            $body[] = '}';
+//            $body[] = '';
+//        }
 
         $body[] = '$this->attributes[\'' . $tagAttribute->getName() . '\'] = $v;';
         $body[] = 'return $this;';
