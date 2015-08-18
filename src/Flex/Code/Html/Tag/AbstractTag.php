@@ -8,7 +8,6 @@ namespace Flex\Code\Html\Tag;
  */
 class AbstractTag implements TagInterface
 {
-
     /**
      * @var string
      */
@@ -33,16 +32,6 @@ class AbstractTag implements TagInterface
      * @var array
      */
     protected $flags = array();
-
-    /**
-     * @var array
-     */
-    protected $flagsHtml5 = array();
-
-    /**
-     * @var array
-     */
-    protected $flagsHtml5NoSupport = array();
 
     /**
      * @var array

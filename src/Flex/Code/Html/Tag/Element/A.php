@@ -17,7 +17,6 @@ use Flex\Code\Html\Tag\TagInterface;
  */
 class A extends AbstractTag
 {
-
     /**
      * @var string
      */
@@ -84,4 +83,3 @@ class A extends AbstractTag
         return $this;
     }
 }
-

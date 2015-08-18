@@ -8,7 +8,6 @@ namespace Flex\Code\Html\Tag;
  */
 class TagFactory
 {
-
     /**
      * @var string
      */
@@ -18,9 +17,9 @@ class TagFactory
      * @var array
      */
     protected $tags = array(
-        'a' => '\Flex\Code\Html\Tag\Element\A',
-        'div' => '\Flex\Code\Html\Tag\Element\Link',
-        'link' => '\Flex\Code\Html\Tag\Element\Link',
+        'a'      => '\Flex\Code\Html\Tag\Element\A',
+        'div'    => '\Flex\Code\Html\Tag\Element\Div',
+        'link'   => '\Flex\Code\Html\Tag\Element\Link',
         'script' => '\Flex\Code\Html\Tag\Element\Script'
     );
 
@@ -52,3 +51,4 @@ class TagFactory
         return $tag;
     }
 }
+
