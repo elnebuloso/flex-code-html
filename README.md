@@ -64,3 +64,4 @@ echo \Flex\Code\Html\Tag\Script::create()->setSrc('https://maxcdn.bootstrapcdn.c
 ### Infos
 
 * http://www.w3schools.com/tags/default.asp
+* phpcbf src/Flex/Code/Html/ --sniffs=PSR2

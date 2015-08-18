@@ -80,6 +80,4 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface, ClipboardE
         $this->attributes['coords'] = $v;
         return $this;
     }
-
 }
-

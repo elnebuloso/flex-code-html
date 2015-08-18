@@ -108,6 +108,4 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['xml:space'] = $v;
         return $this;
     }
-
 }
-

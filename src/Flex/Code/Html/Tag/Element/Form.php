@@ -145,6 +145,4 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface, Clipboa
         $this->attributes['target'] = $v;
         return $this;
     }
-
 }
-

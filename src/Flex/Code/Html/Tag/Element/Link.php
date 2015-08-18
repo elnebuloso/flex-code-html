@@ -157,6 +157,4 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface, Clipboa
         $this->attributes['type'] = $v;
         return $this;
     }
-
 }
-

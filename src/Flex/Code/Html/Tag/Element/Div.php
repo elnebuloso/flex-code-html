@@ -67,6 +67,4 @@ class Div extends AbstractTag implements GlobalAttributeAwareInterface, Clipboar
         $this->attributes['align'] = $v;
         return $this;
     }
-
 }
-

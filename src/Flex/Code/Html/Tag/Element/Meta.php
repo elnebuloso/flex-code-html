@@ -97,6 +97,4 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['scheme'] = $v;
         return $this;
     }
-
 }
-
