@@ -18,6 +18,7 @@ class TagFactory
      * @var array
      */
     protected $tags = array(
+        'a' => '\Flex\Code\Html\Tag\Element\A',
         'div' => '\Flex\Code\Html\Tag\Element\Link',
         'link' => '\Flex\Code\Html\Tag\Element\Link',
         'script' => '\Flex\Code\Html\Tag\Element\Script'
