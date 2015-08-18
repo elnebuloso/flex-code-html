@@ -15,6 +15,13 @@ trait GlobalAttributeAwareTrait
     protected $globalAttributes = [];
 
     /**
+     * @var array
+     */
+    protected $globalFlags = [
+        'hidden'
+    ];
+
+    /**
      * Specifies a shortcut key to activate/focus an element
      *
      * @param string $value
