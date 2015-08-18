@@ -8,10 +8,8 @@ tags:
   - name: async
     description: Specifies that the script is executed asynchronously (only for external scripts)
     flag: true
-    html5: true
   - name: charset
     description: Specifies the character encoding used in an external script file
-    default: UTF-8
   - name: defer
     description: Specifies that the script is executed when the page has finished parsing (only for external scripts)
     flag: true
@@ -21,7 +19,6 @@ tags:
     description: Specifies the media type of the script
   - name: xml:space
     description: Not supported in HTML5. Specifies whether whitespace in code should be preserved
-    html5Support: false
 - name: link
   link: http://www.w3schools.com/tags/tag_link.asp
   shortDescription: The <link> tag defines a link between a document and an external resource.
@@ -30,10 +27,8 @@ tags:
   attributes:
   - name: charset
     description: Not supported in HTML5. Specifies the character encoding of the linked document
-    html5Support: false
   - name: crossorigin
     description: Specifies how the element handles cross-origin requests
-    html5: true
   - name: href
     description: Specifies the location of the linked document
   - name: hreflang
@@ -44,13 +39,10 @@ tags:
     description: Required. Specifies the relationship between the current document and the linked document
   - name: rev
     description: Not supported in HTML5. Specifies the relationship between the linked document and the current document
-    html5Support: false
   - name: sizes
     description: Specifies the size of the linked resource. Only for rel="icon"
-    html5: true
   - name: target
     description: Not supported in HTML5. Specifies where the linked document is to be loaded
-    html5Support: false
   - name: type
     description: Specifies the media type of the linked document
 - name: div
@@ -60,7 +52,6 @@ tags:
   attributes:
   - name: align
     description: Not supported in HTML5. Specifies the alignment of the content inside a <div> element
-    html5Support: false
 - name: form
   link: http://www.w3schools.com/tags/tag_form.asp
   shortDescription: The <form> tag is used to create an HTML form for user input.
@@ -68,13 +59,12 @@ tags:
   attributes:
   - name: accept
     description: Not supported in HTML5. Specifies a comma-separated list of file types  that the server accepts (that can be submitted through the file upload)
-    html5Support: false
   - name: accept-charset
     description: Specifies the character encodings that are to be used for the form submission
   - name: action
     description: Specifies where to send the form-data when a form is submitted
   - name: autocomplete
-    html5: true
+    description: Specifies whether a form should have autocomplete on or off
   - name: enctype
     description: Specifies how the form-data should be encoded when submitting it to the server (only for method="post")
   - name: method
@@ -83,7 +73,6 @@ tags:
     description: Specifies the name of a form
   - name: novalidate
     description: Specifies that the form should not be validated when submitted
-    html5: true
   - name: target
     description: Specifies where to display the response that is received after submitting the form
 - name: a
@@ -93,20 +82,21 @@ tags:
   attributes:
   - name: charset
     description: Not supported in HTML5. Specifies the character-set of a linked document
-    default: UTF-8
-    html5Support: false
   - name: coords
     description: Not supported in HTML5. Specifies the coordinates of a link
-    html5Support: false
-- name: template
-  link:
-  shortDescription:
-  longDescription:
-  void: false
+- name: meta
+  link: http://www.w3schools.com/tags/tag_meta.asp
+  shortDescription: The <meta> tag provides metadata about the HTML document. Metadata will not be displayed on the page, but will be machine parsable.
+  longDescription: Meta elements are typically used to specify page description, keywords, author of the document, last modified, and other metadata. The metadata can be used by browsers (how to display content or reload page), search engines (keywords), or other web services.
+  void: true
   attributes:
-  - name: template
-    description:
-    default:
-    flag: true
-    html5: true
-    html5Support: false
+  - name: charset
+    description: Specifies the character encoding for the HTML document
+  - name: content
+    description: Gives the value associated with the http-equiv or name attribute
+  - name: http-equiv
+    description: Provides an HTTP header for the information/value of the content attribute
+  - name: name
+    description: Specifies a name for the metadata
+  - name: scheme
+    description: Not supported in HTML5. Specifies a scheme to be used to interpret the value of the content attribute
