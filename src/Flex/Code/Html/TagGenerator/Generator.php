@@ -12,6 +12,8 @@ use Zend\Code\Generator\FileGenerator;
 use Zend\Code\Generator\MethodGenerator;
 use Zend\Code\Generator\ParameterGenerator;
 use Zend\Code\Generator\PropertyGenerator;
+use Zend\Code\Generator\TraitGenerator;
+use Zend\Code\Generator\TraitUsageGenerator;
 
 /**
  * Class TagGenerator
@@ -79,9 +81,18 @@ class Generator
         $class = new ClassGenerator();
         $class->setNamespaceName('Flex\Code\Html\Tag\Element');
         $class->setName($className);
-        $class->addUse('Flex\Code\Html\Tag\TagInterface');
+
         $class->addUse('Flex\Code\Html\Tag\AbstractTag');
         $class->setExtendedClass('AbstractTag');
+
+        $class->addUse('Flex\Code\Html\Attribute\GlobalAttributeAwareInterface');
+        $class->setImplementedInterfaces(array('GlobalAttributeAwareInterface'));
+
+        $class->addUse('Flex\Code\Html\Attribute\GlobalAttributeAwareTrait');
+        $class->addTrait('GlobalAttributeAwareTrait');
+
+        $class->addUse('Flex\Code\Html\Event\ClipboardEventAwareTrait');
+        $class->addTrait('ClipboardEventAwareTrait');
 
         $docBlock = new DocBlockGenerator();
         $docBlock->setTag(new GenericTag('author', 'elnebuloso/flex-code-html-generator'));

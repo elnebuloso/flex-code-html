@@ -2,8 +2,10 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\TagInterface;
 use Flex\Code\Html\Tag\AbstractTag;
+use Flex\Code\Html\Attribute\GlobalAttributeAwareInterface;
+use Flex\Code\Html\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Event\ClipboardEventAwareTrait;
 
 /**
  * The <a> tag defines a hyperlink, which is used to link from one page to another.
@@ -16,8 +18,10 @@ use Flex\Code\Html\Tag\AbstractTag;
  * @author elnebuloso/flex-code-html-generator
  * @link http://www.w3schools.com/tags/tag_a.asp
  */
-class A extends AbstractTag
+class A extends AbstractTag implements GlobalAttributeAwareInterface
 {
+
+    use GlobalAttributeAwareTrait, ClipboardEventAwareTrait;
 
     /**
      * @var string

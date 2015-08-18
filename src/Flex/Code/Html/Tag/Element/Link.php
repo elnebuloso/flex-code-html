@@ -2,8 +2,10 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\TagInterface;
 use Flex\Code\Html\Tag\AbstractTag;
+use Flex\Code\Html\Attribute\GlobalAttributeAwareInterface;
+use Flex\Code\Html\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Event\ClipboardEventAwareTrait;
 
 /**
  * The <link> tag defines a link between a document and an external resource.
@@ -13,8 +15,10 @@ use Flex\Code\Html\Tag\AbstractTag;
  * @author elnebuloso/flex-code-html-generator
  * @link http://www.w3schools.com/tags/tag_link.asp
  */
-class Link extends AbstractTag
+class Link extends AbstractTag implements GlobalAttributeAwareInterface
 {
+
+    use GlobalAttributeAwareTrait, ClipboardEventAwareTrait;
 
     /**
      * @var string

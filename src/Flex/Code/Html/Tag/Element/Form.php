@@ -2,8 +2,10 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\TagInterface;
 use Flex\Code\Html\Tag\AbstractTag;
+use Flex\Code\Html\Attribute\GlobalAttributeAwareInterface;
+use Flex\Code\Html\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Event\ClipboardEventAwareTrait;
 
 /**
  * The <form> tag is used to create an HTML form for user input.
@@ -11,8 +13,10 @@ use Flex\Code\Html\Tag\AbstractTag;
  * @author elnebuloso/flex-code-html-generator
  * @link http://www.w3schools.com/tags/tag_form.asp
  */
-class Form extends AbstractTag
+class Form extends AbstractTag implements GlobalAttributeAwareInterface
 {
+
+    use GlobalAttributeAwareTrait, ClipboardEventAwareTrait;
 
     /**
      * @var string

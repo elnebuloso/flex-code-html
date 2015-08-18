@@ -2,8 +2,10 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\TagInterface;
 use Flex\Code\Html\Tag\AbstractTag;
+use Flex\Code\Html\Attribute\GlobalAttributeAwareInterface;
+use Flex\Code\Html\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Event\ClipboardEventAwareTrait;
 
 /**
  * The <script> tag is used to define a client-side script, such as a JavaScript.
@@ -15,8 +17,10 @@ use Flex\Code\Html\Tag\AbstractTag;
  * @author elnebuloso/flex-code-html-generator
  * @link http://www.w3schools.com/tags/tag_script.asp
  */
-class Script extends AbstractTag
+class Script extends AbstractTag implements GlobalAttributeAwareInterface
 {
+
+    use GlobalAttributeAwareTrait, ClipboardEventAwareTrait;
 
     /**
      * @var string
