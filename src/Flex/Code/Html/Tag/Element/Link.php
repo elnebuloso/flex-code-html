@@ -2,7 +2,6 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\AbstractTag;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareTrait;
 use Flex\Code\Html\Event\ClipboardEventAwareInterface;
@@ -19,6 +18,7 @@ use Flex\Code\Html\Event\MouseEventAwareInterface;
 use Flex\Code\Html\Event\MouseEventAwareTrait;
 use Flex\Code\Html\Event\WindowEventAwareInterface;
 use Flex\Code\Html\Event\WindowEventAwareTrait;
+use Flex\Code\Html\Tag\AbstractTag;
 
 /**
  * The <link> tag defines a link between a document and an external resource.
@@ -51,16 +51,12 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface, Clipboa
     /**
      * @var array
      */
-    protected $attributes = array(
-        
-    );
+    protected $attributes = array();
 
     /**
      * @var array
      */
-    protected $flags = array(
-        
-    );
+    protected $flags = array();
 
     /**
      * @var string
@@ -161,7 +157,6 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface, Clipboa
         $this->attributes['type'] = $v;
         return $this;
     }
-
 
 }
 

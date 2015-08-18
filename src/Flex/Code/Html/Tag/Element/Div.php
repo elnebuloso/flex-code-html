@@ -2,7 +2,6 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\AbstractTag;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareTrait;
 use Flex\Code\Html\Event\ClipboardEventAwareInterface;
@@ -19,6 +18,7 @@ use Flex\Code\Html\Event\MouseEventAwareInterface;
 use Flex\Code\Html\Event\MouseEventAwareTrait;
 use Flex\Code\Html\Event\WindowEventAwareInterface;
 use Flex\Code\Html\Event\WindowEventAwareTrait;
+use Flex\Code\Html\Tag\AbstractTag;
 
 /**
  * The <div> tag defines a division or a section in an HTML document.
@@ -51,16 +51,12 @@ class Div extends AbstractTag implements GlobalAttributeAwareInterface, Clipboar
     /**
      * @var array
      */
-    protected $attributes = array(
-        
-    );
+    protected $attributes = array();
 
     /**
      * @var array
      */
-    protected $flags = array(
-        
-    );
+    protected $flags = array();
 
     /**
      * @var string
@@ -71,7 +67,6 @@ class Div extends AbstractTag implements GlobalAttributeAwareInterface, Clipboar
         $this->attributes['align'] = $v;
         return $this;
     }
-
 
 }
 

@@ -51,18 +51,6 @@ trait WindowEventAwareTrait
     }
 
     /**
-     * Script to be run when an error occur
-     * html5only
-     *
-     * @param string $script
-     * @return $this
-     */
-    public function onerror($script)
-    {
-        $this->windowEvents['onerror'] = $script;
-    }
-
-    /**
      * Script to be run when there has been changes to the anchor part of the a URL
      * html5only
      *

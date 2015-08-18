@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\AbstractTag;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Tag\AbstractTag;
 
 /**
  * The <meta> tag provides metadata about the HTML document. Metadata will not be
@@ -41,16 +41,12 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array(
-        
-    );
+    protected $attributes = array();
 
     /**
      * @var array
      */
-    protected $flags = array(
-        
-    );
+    protected $flags = array();
 
     /**
      * @var string
@@ -101,7 +97,6 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['scheme'] = $v;
         return $this;
     }
-
 
 }
 

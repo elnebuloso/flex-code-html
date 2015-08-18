@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\AbstractTag;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Tag\AbstractTag;
 
 /**
  * The <script> tag is used to define a client-side script, such as a JavaScript.
@@ -39,9 +39,7 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array(
-        
-    );
+    protected $attributes = array();
 
     /**
      * @var array
@@ -110,7 +108,6 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['xml:space'] = $v;
         return $this;
     }
-
 
 }
 

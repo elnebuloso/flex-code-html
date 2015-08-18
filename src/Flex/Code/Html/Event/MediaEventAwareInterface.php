@@ -74,15 +74,6 @@ interface MediaEventAwareInterface
     public function onended($script);
 
     /**
-     * Script to be run when an error occurs when the file is being loaded
-     * html5only
-     *
-     * @param string $script
-     * @return $this
-     */
-    public function onerror($script);
-
-    /**
      * Script to be run when media data is loaded
      * html5only
      *
