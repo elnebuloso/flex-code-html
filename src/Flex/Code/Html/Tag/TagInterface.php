@@ -29,7 +29,7 @@ interface TagInterface
      * @param array $attributes
      * @return $this
      */
-    public function setAttributes(array $attributes = array());
+    public function setAttributes(array $attributes = []);
 
     /**
      * @param mixed $child
@@ -52,4 +52,3 @@ interface TagInterface
      */
     public function __toString();
 }
-

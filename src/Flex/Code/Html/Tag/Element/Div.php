@@ -2,11 +2,12 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\AbstractTag;
 use Flex\Code\Html\Tag\TagInterface;
+use Flex\Code\Html\Tag\AbstractTag;
 
 /**
  * The <div> tag defines a division or a section in an HTML document.
+ *
  * The <div> tag is used to group block-elements to format them with CSS.
  *
  * @author elnebuloso/flex-code-html-generator
@@ -33,23 +34,15 @@ class Div extends AbstractTag
     /**
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = array(
+        
+    );
 
     /**
      * @var array
      */
-    protected $flags = array();
-
-    /**
-     * @var array
-     */
-    protected $flagsHtml5 = array();
-
-    /**
-     * @var array
-     */
-    protected $flagsHtml5NoSupport = array(
-        'align',
+    protected $flags = array(
+        
     );
 
     /**
@@ -58,12 +51,10 @@ class Div extends AbstractTag
      */
     public function setAlign($v)
     {
-        if ($this->doctype == TagInterface::DOCTYPE_HTML5 && in_array('align', $this->flagsHtml5NoSupport)) {
-            return $this;
-        }
-
         $this->attributes['align'] = $v;
         return $this;
     }
+
+
 }
 

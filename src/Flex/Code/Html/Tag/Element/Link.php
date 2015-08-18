@@ -2,11 +2,12 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\AbstractTag;
 use Flex\Code\Html\Tag\TagInterface;
+use Flex\Code\Html\Tag\AbstractTag;
 
 /**
  * The <link> tag defines a link between a document and an external resource.
+ *
  * The <link> tag is used to link to external style sheets.
  *
  * @author elnebuloso/flex-code-html-generator
@@ -33,28 +34,15 @@ class Link extends AbstractTag
     /**
      * @var array
      */
-    protected $attributes = array();
-
-    /**
-     * @var array
-     */
-    protected $flags = array();
-
-    /**
-     * @var array
-     */
-    protected $flagsHtml5 = array(
-        'crossorigin',
-        'sizes',
+    protected $attributes = array(
+        
     );
 
     /**
      * @var array
      */
-    protected $flagsHtml5NoSupport = array(
-        'charset',
-        'rev',
-        'target',
+    protected $flags = array(
+        
     );
 
     /**
@@ -63,10 +51,6 @@ class Link extends AbstractTag
      */
     public function setCharset($v)
     {
-        if ($this->doctype == TagInterface::DOCTYPE_HTML5 && in_array('charset', $this->flagsHtml5NoSupport)) {
-            return $this;
-        }
-
         $this->attributes['charset'] = $v;
         return $this;
     }
@@ -77,10 +61,6 @@ class Link extends AbstractTag
      */
     public function setCrossorigin($v)
     {
-        if ($this->doctype != TagInterface::DOCTYPE_HTML5 && in_array('crossorigin', $this->flagsHtml5)) {
-            return $this;
-        }
-
         $this->attributes['crossorigin'] = $v;
         return $this;
     }
@@ -131,10 +111,6 @@ class Link extends AbstractTag
      */
     public function setRev($v)
     {
-        if ($this->doctype == TagInterface::DOCTYPE_HTML5 && in_array('rev', $this->flagsHtml5NoSupport)) {
-            return $this;
-        }
-
         $this->attributes['rev'] = $v;
         return $this;
     }
@@ -145,10 +121,6 @@ class Link extends AbstractTag
      */
     public function setSizes($v)
     {
-        if ($this->doctype != TagInterface::DOCTYPE_HTML5 && in_array('sizes', $this->flagsHtml5)) {
-            return $this;
-        }
-
         $this->attributes['sizes'] = $v;
         return $this;
     }
@@ -159,10 +131,6 @@ class Link extends AbstractTag
      */
     public function setTarget($v)
     {
-        if ($this->doctype == TagInterface::DOCTYPE_HTML5 && in_array('target', $this->flagsHtml5NoSupport)) {
-            return $this;
-        }
-
         $this->attributes['target'] = $v;
         return $this;
     }
@@ -176,5 +144,7 @@ class Link extends AbstractTag
         $this->attributes['type'] = $v;
         return $this;
     }
+
+
 }
 

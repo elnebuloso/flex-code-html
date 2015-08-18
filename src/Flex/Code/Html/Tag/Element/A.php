@@ -2,11 +2,12 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\AbstractTag;
 use Flex\Code\Html\Tag\TagInterface;
+use Flex\Code\Html\Tag\AbstractTag;
 
 /**
  * The <a> tag defines a hyperlink, which is used to link from one page to another.
+ *
  * The most important attribute of the <a> element is the href attribute, which
  * indicates the link's destination. By default, links will appear as follows in
  * all browsers: An unvisited link is underlined and blue, A visited link is
@@ -17,6 +18,7 @@ use Flex\Code\Html\Tag\TagInterface;
  */
 class A extends AbstractTag
 {
+
     /**
      * @var string
      */
@@ -35,36 +37,23 @@ class A extends AbstractTag
     /**
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = array(
+        
+    );
 
     /**
      * @var array
      */
-    protected $flags = array();
-
-    /**
-     * @var array
-     */
-    protected $flagsHtml5 = array();
-
-    /**
-     * @var array
-     */
-    protected $flagsHtml5NoSupport = array(
-        'charset',
-        'coords',
+    protected $flags = array(
+        
     );
 
     /**
      * @var string
      * @return $this
      */
-    public function setCharset($v = 'UTF-8')
+    public function setCharset($v)
     {
-        if ($this->doctype == TagInterface::DOCTYPE_HTML5 && in_array('charset', $this->flagsHtml5NoSupport)) {
-            return $this;
-        }
-
         $this->attributes['charset'] = $v;
         return $this;
     }
@@ -75,11 +64,10 @@ class A extends AbstractTag
      */
     public function setCoords($v)
     {
-        if ($this->doctype == TagInterface::DOCTYPE_HTML5 && in_array('coords', $this->flagsHtml5NoSupport)) {
-            return $this;
-        }
-
         $this->attributes['coords'] = $v;
         return $this;
     }
+
+
 }
+

@@ -26,17 +26,17 @@ class AbstractTag implements TagInterface
     /**
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = [];
 
     /**
      * @var array
      */
-    protected $flags = array();
+    protected $flags = [];
 
     /**
      * @var array
      */
-    protected $children = array();
+    protected $children = [];
 
     /**
      * @param string $doctype
@@ -63,7 +63,7 @@ class AbstractTag implements TagInterface
      * @param array $attributes
      * @return $this
      */
-    public function setAttributes(array $attributes = array())
+    public function setAttributes(array $attributes = [])
     {
         $this->attributes = $attributes;
         return $this;
@@ -101,7 +101,7 @@ class AbstractTag implements TagInterface
         $flags = array_intersect_key($flags, $diff);
         $flags = $this->renderFlags($flags);
 
-        $tag = array();
+        $tag = [];
         $tag[] = '<' . $this->name;
 
         if (!empty($attributes)) {

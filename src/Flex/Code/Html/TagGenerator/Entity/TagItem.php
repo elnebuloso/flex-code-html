@@ -19,7 +19,7 @@ class TagItem extends AbstractRecursiveObject
     /**
      * @param array $record
      */
-    public function __construct(array $record = array())
+    public function __construct(array $record = [])
     {
         parent::__construct($record);
 
@@ -38,7 +38,7 @@ class TagItem extends AbstractRecursiveObject
         return array(
             'doctype'    => TagInterface::DOCTYPE_HTML5,
             'void'       => false,
-            'attributes' => array()
+            'attributes' => []
         );
     }
 
@@ -95,7 +95,7 @@ class TagItem extends AbstractRecursiveObject
      */
     public function getAttributes()
     {
-        return $this->getRecordValue('attributes', array());
+        return $this->getRecordValue('attributes', []);
     }
 
     /**

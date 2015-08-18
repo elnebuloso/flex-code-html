@@ -2,8 +2,8 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\AbstractTag;
 use Flex\Code\Html\Tag\TagInterface;
+use Flex\Code\Html\Tag\AbstractTag;
 
 /**
  * The <form> tag is used to create an HTML form for user input.
@@ -32,26 +32,15 @@ class Form extends AbstractTag
     /**
      * @var array
      */
-    protected $attributes = array();
-
-    /**
-     * @var array
-     */
-    protected $flags = array();
-
-    /**
-     * @var array
-     */
-    protected $flagsHtml5 = array(
-        'autocomplete',
-        'novalidate',
+    protected $attributes = array(
+        
     );
 
     /**
      * @var array
      */
-    protected $flagsHtml5NoSupport = array(
-        'accept',
+    protected $flags = array(
+        
     );
 
     /**
@@ -60,10 +49,6 @@ class Form extends AbstractTag
      */
     public function setAccept($v)
     {
-        if ($this->doctype == TagInterface::DOCTYPE_HTML5 && in_array('accept', $this->flagsHtml5NoSupport)) {
-            return $this;
-        }
-
         $this->attributes['accept'] = $v;
         return $this;
     }
@@ -94,10 +79,6 @@ class Form extends AbstractTag
      */
     public function setAutocomplete($v)
     {
-        if ($this->doctype != TagInterface::DOCTYPE_HTML5 && in_array('autocomplete', $this->flagsHtml5)) {
-            return $this;
-        }
-
         $this->attributes['autocomplete'] = $v;
         return $this;
     }
@@ -138,10 +119,6 @@ class Form extends AbstractTag
      */
     public function setNovalidate($v)
     {
-        if ($this->doctype != TagInterface::DOCTYPE_HTML5 && in_array('novalidate', $this->flagsHtml5)) {
-            return $this;
-        }
-
         $this->attributes['novalidate'] = $v;
         return $this;
     }
@@ -155,5 +132,7 @@ class Form extends AbstractTag
         $this->attributes['target'] = $v;
         return $this;
     }
+
+
 }
 

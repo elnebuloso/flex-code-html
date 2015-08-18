@@ -37,7 +37,7 @@ class TagFactory
      * @throws TagFactoryException
      * @return TagInterface
      */
-    public function create($tag, array $attributes = array())
+    public function create($tag, array $attributes = [])
     {
         if (!array_key_exists($tag, $this->tags)) {
             throw new TagFactoryException('invalid tag: ' . $tag);
@@ -51,4 +51,3 @@ class TagFactory
         return $tag;
     }
 }
-

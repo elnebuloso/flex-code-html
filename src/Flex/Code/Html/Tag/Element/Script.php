@@ -2,11 +2,12 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\AbstractTag;
 use Flex\Code\Html\Tag\TagInterface;
+use Flex\Code\Html\Tag\AbstractTag;
 
 /**
  * The <script> tag is used to define a client-side script, such as a JavaScript.
+ *
  * The <script> element either contains scripting statements, or it points to an
  * external script file through the src attribute. Common uses for JavaScript are
  * image manipulation, form validation, and dynamic changes of content.
@@ -35,7 +36,9 @@ class Script extends AbstractTag
     /**
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = array(
+        
+    );
 
     /**
      * @var array
@@ -46,29 +49,11 @@ class Script extends AbstractTag
     );
 
     /**
-     * @var array
-     */
-    protected $flagsHtml5 = array(
-        'async',
-    );
-
-    /**
-     * @var array
-     */
-    protected $flagsHtml5NoSupport = array(
-        'xml:space',
-    );
-
-    /**
      * @var string
      * @return $this
      */
     public function isAsync($v = true)
     {
-        if ($this->doctype != TagInterface::DOCTYPE_HTML5 && in_array('async', $this->flagsHtml5)) {
-            return $this;
-        }
-
         $this->attributes['async'] = $v;
         return $this;
     }
@@ -77,7 +62,7 @@ class Script extends AbstractTag
      * @var string
      * @return $this
      */
-    public function setCharset($v = 'UTF-8')
+    public function setCharset($v)
     {
         $this->attributes['charset'] = $v;
         return $this;
@@ -119,12 +104,10 @@ class Script extends AbstractTag
      */
     public function setXmlSpace($v)
     {
-        if ($this->doctype == TagInterface::DOCTYPE_HTML5 && in_array('xml:space', $this->flagsHtml5NoSupport)) {
-            return $this;
-        }
-
         $this->attributes['xml:space'] = $v;
         return $this;
     }
+
+
 }
 
