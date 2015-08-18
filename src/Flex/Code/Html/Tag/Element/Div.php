@@ -5,7 +5,20 @@ namespace Flex\Code\Html\Tag\Element;
 use Flex\Code\Html\Tag\AbstractTag;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Event\ClipboardEventAwareInterface;
 use Flex\Code\Html\Event\ClipboardEventAwareTrait;
+use Flex\Code\Html\Event\FormEventAwareInterface;
+use Flex\Code\Html\Event\FormEventAwareTrait;
+use Flex\Code\Html\Event\KeyboardEventAwareInterface;
+use Flex\Code\Html\Event\KeyboardEventAwareTrait;
+use Flex\Code\Html\Event\MediaEventAwareInterface;
+use Flex\Code\Html\Event\MediaEventAwareTrait;
+use Flex\Code\Html\Event\MiscEventAwareInterface;
+use Flex\Code\Html\Event\MiscEventAwareTrait;
+use Flex\Code\Html\Event\MouseEventAwareInterface;
+use Flex\Code\Html\Event\MouseEventAwareTrait;
+use Flex\Code\Html\Event\WindowEventAwareInterface;
+use Flex\Code\Html\Event\WindowEventAwareTrait;
 
 /**
  * The <div> tag defines a division or a section in an HTML document.
@@ -15,10 +28,10 @@ use Flex\Code\Html\Event\ClipboardEventAwareTrait;
  * @author elnebuloso/flex-code-html-generator
  * @link http://www.w3schools.com/tags/tag_div.asp
  */
-class Div extends AbstractTag implements GlobalAttributeAwareInterface
+class Div extends AbstractTag implements GlobalAttributeAwareInterface, ClipboardEventAwareInterface, FormEventAwareInterface, KeyboardEventAwareInterface, MediaEventAwareInterface, MiscEventAwareInterface, MouseEventAwareInterface, WindowEventAwareInterface
 {
 
-    use GlobalAttributeAwareTrait, ClipboardEventAwareTrait;
+    use GlobalAttributeAwareTrait, ClipboardEventAwareTrait, FormEventAwareTrait, KeyboardEventAwareTrait, MediaEventAwareTrait, MiscEventAwareTrait, MouseEventAwareTrait, WindowEventAwareTrait;
 
     /**
      * @var string

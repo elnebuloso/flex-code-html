@@ -4,6 +4,7 @@ tags:
   link: http://www.w3schools.com/tags/tag_script.asp
   shortDescription: The <script> tag is used to define a client-side script, such as a JavaScript.
   longDescription: The <script> element either contains scripting statements, or it points to an external script file through the src attribute. Common uses for JavaScript are image manipulation, form validation, and dynamic changes of content.
+  attributesGlobal: true
   attributes:
   - name: async
     description: Specifies that the script is executed asynchronously (only for external scripts)
@@ -24,6 +25,14 @@ tags:
   shortDescription: The <link> tag defines a link between a document and an external resource.
   longDescription: The <link> tag is used to link to external style sheets.
   void: true
+  attributesGlobal: true
+  eventsClipboard: true
+  eventsForm: true
+  eventsKeyboard: true
+  eventsMedia: true
+  eventsMisc: true
+  eventsMouse: true
+  eventsWindow: true
   attributes:
   - name: charset
     description: Not supported in HTML5. Specifies the character encoding of the linked document
@@ -49,13 +58,28 @@ tags:
   link: http://www.w3schools.com/tags/tag_div.asp
   shortDescription: The <div> tag defines a division or a section in an HTML document.
   longDescription: The <div> tag is used to group block-elements to format them with CSS.
+  attributesGlobal: true
+  eventsClipboard: true
+  eventsForm: true
+  eventsKeyboard: true
+  eventsMedia: true
+  eventsMisc: true
+  eventsMouse: true
+  eventsWindow: true
   attributes:
   - name: align
     description: Not supported in HTML5. Specifies the alignment of the content inside a <div> element
 - name: form
   link: http://www.w3schools.com/tags/tag_form.asp
   shortDescription: The <form> tag is used to create an HTML form for user input.
-  longDescription:
+  attributesGlobal: true
+  eventsClipboard: true
+  eventsForm: true
+  eventsKeyboard: true
+  eventsMedia: true
+  eventsMisc: true
+  eventsMouse: true
+  eventsWindow: true
   attributes:
   - name: accept
     description: Not supported in HTML5. Specifies a comma-separated list of file types  that the server accepts (that can be submitted through the file upload)
@@ -79,6 +103,14 @@ tags:
   link: http://www.w3schools.com/tags/tag_a.asp
   shortDescription: The <a> tag defines a hyperlink, which is used to link from one page to another.
   longDescription: The most important attribute of the <a> element is the href attribute, which indicates the link's destination. By default, links will appear as follows in all browsers: An unvisited link is underlined and blue, A visited link is underlined and purple, An active link is underlined and red
+  attributesGlobal: true
+  eventsClipboard: true
+  eventsForm: true
+  eventsKeyboard: true
+  eventsMedia: true
+  eventsMisc: true
+  eventsMouse: true
+  eventsWindow: true
   attributes:
   - name: charset
     description: Not supported in HTML5. Specifies the character-set of a linked document
@@ -89,6 +121,7 @@ tags:
   shortDescription: The <meta> tag provides metadata about the HTML document. Metadata will not be displayed on the page, but will be machine parsable.
   longDescription: Meta elements are typically used to specify page description, keywords, author of the document, last modified, and other metadata. The metadata can be used by browsers (how to display content or reload page), search engines (keywords), or other web services.
   void: true
+  attributesGlobal: true
   attributes:
   - name: charset
     description: Specifies the character encoding for the HTML document

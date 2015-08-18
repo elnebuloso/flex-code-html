@@ -36,9 +36,17 @@ class TagItem extends AbstractRecursiveObject
     public function getRecordDefaults()
     {
         return array(
-            'doctype'    => TagInterface::DOCTYPE_HTML5,
-            'void'       => false,
-            'attributes' => []
+            'doctype'          => TagInterface::DOCTYPE_HTML5,
+            'void'             => false,
+            'attributesGlobal' => false,
+            'eventsClipboard'  => false,
+            'eventsForm'       => false,
+            'eventsKeyboard'   => false,
+            'eventsMedia'      => false,
+            'eventsMisc'       => false,
+            'eventsMouse'      => false,
+            'eventsWindow'     => false,
+            'attributes'       => []
         );
     }
 
@@ -88,6 +96,70 @@ class TagItem extends AbstractRecursiveObject
     public function isVoid()
     {
         return $this->getRecordValue('void', false) === true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasAttributesGlobal()
+    {
+        return $this->getRecordValue('attributesGlobal', false) === true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasEventsClipboard()
+    {
+        return $this->getRecordValue('eventsClipboard', false) === true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasEventsForm()
+    {
+        return $this->getRecordValue('eventsForm', false) === true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasEventsKeyboard()
+    {
+        return $this->getRecordValue('eventsKeyboard', false) === true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasEventsMedia()
+    {
+        return $this->getRecordValue('eventsMedia', false) === true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasEventsMisc()
+    {
+        return $this->getRecordValue('eventsMisc', false) === true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasEventsMouse()
+    {
+        return $this->getRecordValue('eventsMouse', false) === true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasEventsWindow()
+    {
+        return $this->getRecordValue('eventsWindow', false) === true;
     }
 
     /**

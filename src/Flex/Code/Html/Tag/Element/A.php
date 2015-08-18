@@ -2,10 +2,23 @@
 
 namespace Flex\Code\Html\Tag\Element;
 
-use Flex\Code\Html\Tag\AbstractTag;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Event\ClipboardEventAwareInterface;
 use Flex\Code\Html\Event\ClipboardEventAwareTrait;
+use Flex\Code\Html\Event\FormEventAwareInterface;
+use Flex\Code\Html\Event\FormEventAwareTrait;
+use Flex\Code\Html\Event\KeyboardEventAwareInterface;
+use Flex\Code\Html\Event\KeyboardEventAwareTrait;
+use Flex\Code\Html\Event\MediaEventAwareInterface;
+use Flex\Code\Html\Event\MediaEventAwareTrait;
+use Flex\Code\Html\Event\MiscEventAwareInterface;
+use Flex\Code\Html\Event\MiscEventAwareTrait;
+use Flex\Code\Html\Event\MouseEventAwareInterface;
+use Flex\Code\Html\Event\MouseEventAwareTrait;
+use Flex\Code\Html\Event\WindowEventAwareInterface;
+use Flex\Code\Html\Event\WindowEventAwareTrait;
+use Flex\Code\Html\Tag\AbstractTag;
 
 /**
  * The <a> tag defines a hyperlink, which is used to link from one page to another.
@@ -18,10 +31,10 @@ use Flex\Code\Html\Event\ClipboardEventAwareTrait;
  * @author elnebuloso/flex-code-html-generator
  * @link http://www.w3schools.com/tags/tag_a.asp
  */
-class A extends AbstractTag implements GlobalAttributeAwareInterface
+class A extends AbstractTag implements GlobalAttributeAwareInterface, ClipboardEventAwareInterface, FormEventAwareInterface, KeyboardEventAwareInterface, MediaEventAwareInterface, MiscEventAwareInterface, MouseEventAwareInterface, WindowEventAwareInterface
 {
 
-    use GlobalAttributeAwareTrait, ClipboardEventAwareTrait;
+    use GlobalAttributeAwareTrait, ClipboardEventAwareTrait, FormEventAwareTrait, KeyboardEventAwareTrait, MediaEventAwareTrait, MiscEventAwareTrait, MouseEventAwareTrait, WindowEventAwareTrait;
 
     /**
      * @var string
@@ -41,16 +54,12 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array(
-        
-    );
+    protected $attributes = array();
 
     /**
      * @var array
      */
-    protected $flags = array(
-        
-    );
+    protected $flags = array();
 
     /**
      * @var string
@@ -71,7 +80,6 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['coords'] = $v;
         return $this;
     }
-
 
 }
 
