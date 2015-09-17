@@ -16,7 +16,7 @@ try {
         }
     }
 
-    // autoloading
+    /** @noinspection PhpIncludeInspection */
     require_once $autoloader;
 
     // this makes our life easier when dealing with paths.

@@ -1,9 +1,11 @@
 <?php
 namespace Flex\Code\Html\TagGenerator;
 
-use Flex\Code\Html\Tag\TagInterface;
-use Flex\Code\Html\TagGenerator\Entity\TagAttribute;
-use Flex\Code\Html\TagGenerator\Entity\TagItem;
+use Flex\Code\Html\Tag\Model\TagInterface;
+use Flex\Code\Html\TagGenerator\Entity\Attribute;
+use Flex\Code\Html\TagGenerator\Entity\AttributeManager;
+use Flex\Code\Html\TagGenerator\Entity\Tag;
+use Flex\Code\Html\TagGenerator\Entity\TagCollection;
 use Flex\Converter\StringToCamelCase;
 use Zend\Code\Generator\ClassGenerator;
 use Zend\Code\Generator\DocBlock\Tag\GenericTag;
@@ -21,9 +23,9 @@ use Zend\Code\Generator\PropertyGenerator;
 class Generator
 {
     /**
-     * @var array
+     * @var TagCollection
      */
-    protected $data = [];
+    protected $tags;
 
     /**
      * @var StringToCamelCase
@@ -31,11 +33,11 @@ class Generator
     protected $stringToCamelCaseConverter;
 
     /**
-     * @param array $data
+     * @param TagCollection $tags
      */
-    public function __construct(array $data)
+    public function __construct(TagCollection $tags)
     {
-        $this->data = $data;
+        $this->tags = $tags;
         $this->stringToCamelCaseConverter = new StringToCamelCase();
     }
 
@@ -44,15 +46,19 @@ class Generator
      */
     public function generate()
     {
-        foreach ($this->data['tags'] as $tag) {
-            $this->generateTag(new TagItem($tag));
+        $attributeManager = new AttributeManager();
+
+        /** @var Tag $tag */
+        foreach ($this->tags as $tag) {
+            $tag->setAttributes($attributeManager->findAttributesForTag($tag));
+            $this->generateTag($tag);
         }
     }
 
     /**
-     * @param TagItem $tagItem
+     * @param Tag $tagItem
      */
-    protected function generateTag(TagItem $tagItem)
+    protected function generateTag(Tag $tagItem)
     {
         if ($tagItem->getName() == 'template') {
             return;
@@ -70,10 +76,10 @@ class Generator
     }
 
     /**
-     * @param TagItem $tagItem
+     * @param Tag $tagItem
      * @return ClassGenerator
      */
-    protected function createClass(TagItem $tagItem)
+    protected function createClass(Tag $tagItem)
     {
         $className = ucfirst($this->stringToCamelCaseConverter->convert($tagItem->getName()));
         $class = new ClassGenerator();
@@ -85,7 +91,7 @@ class Generator
 
         $implementedInterfaces = [];
 
-        if ($tagItem->hasAttributesGlobal()) {
+        if ($tagItem->isGlobalAttributeAware()) {
             $implementedInterfaces[] = 'GlobalAttributeAwareInterface';
 
             $class->addUse('Flex\Code\Html\Attribute\GlobalAttributeAwareInterface');
@@ -93,7 +99,7 @@ class Generator
             $class->addTrait('GlobalAttributeAwareTrait');
         }
 
-        if ($tagItem->hasEventsClipboard()) {
+        if ($tagItem->isClipboardEventAware()) {
             $implementedInterfaces[] = 'ClipboardEventAwareInterface';
 
             $class->addUse('Flex\Code\Html\Event\ClipboardEventAwareInterface');
@@ -101,7 +107,7 @@ class Generator
             $class->addTrait('ClipboardEventAwareTrait');
         }
 
-        if ($tagItem->hasEventsForm()) {
+        if ($tagItem->isFormEventAware()) {
             $implementedInterfaces[] = 'FormEventAwareInterface';
 
             $class->addUse('Flex\Code\Html\Event\FormEventAwareInterface');
@@ -109,7 +115,7 @@ class Generator
             $class->addTrait('FormEventAwareTrait');
         }
 
-        if ($tagItem->hasEventsKeyboard()) {
+        if ($tagItem->isKeyboardEventAware()) {
             $implementedInterfaces[] = 'KeyboardEventAwareInterface';
 
             $class->addUse('Flex\Code\Html\Event\KeyboardEventAwareInterface');
@@ -117,7 +123,7 @@ class Generator
             $class->addTrait('KeyboardEventAwareTrait');
         }
 
-        if ($tagItem->hasEventsMedia()) {
+        if ($tagItem->isMediaEventAware()) {
             $implementedInterfaces[] = 'MediaEventAwareInterface';
 
             $class->addUse('Flex\Code\Html\Event\MediaEventAwareInterface');
@@ -125,7 +131,7 @@ class Generator
             $class->addTrait('MediaEventAwareTrait');
         }
 
-        if ($tagItem->hasEventsMisc()) {
+        if ($tagItem->isMiscEventAware()) {
             $implementedInterfaces[] = 'MiscEventAwareInterface';
 
             $class->addUse('Flex\Code\Html\Event\MiscEventAwareInterface');
@@ -133,7 +139,7 @@ class Generator
             $class->addTrait('MiscEventAwareTrait');
         }
 
-        if ($tagItem->hasEventsMouse()) {
+        if ($tagItem->isMouseEventAware()) {
             $implementedInterfaces[] = 'MouseEventAwareInterface';
 
             $class->addUse('Flex\Code\Html\Event\MouseEventAwareInterface');
@@ -141,7 +147,7 @@ class Generator
             $class->addTrait('MouseEventAwareTrait');
         }
 
-        if ($tagItem->hasEventsWindow()) {
+        if ($tagItem->isWindowEventAware()) {
             $implementedInterfaces[] = 'WindowEventAwareInterface';
 
             $class->addUse('Flex\Code\Html\Event\WindowEventAwareInterface');
@@ -170,9 +176,9 @@ class Generator
 
     /**
      * @param ClassGenerator $class
-     * @param TagItem $tagItem
+     * @param Tag $tagItem
      */
-    protected function addPropertyName(ClassGenerator $class, TagItem $tagItem)
+    protected function addPropertyName(ClassGenerator $class, Tag $tagItem)
     {
         $property = new PropertyGenerator('name', $tagItem->getName(), PropertyGenerator::FLAG_PROTECTED);
 
@@ -199,9 +205,9 @@ class Generator
 
     /**
      * @param ClassGenerator $class
-     * @param TagItem $tagItem
+     * @param Tag $tagItem
      */
-    public function addPropertyIsVoid(ClassGenerator $class, TagItem $tagItem)
+    public function addPropertyIsVoid(ClassGenerator $class, Tag $tagItem)
     {
         $property = new PropertyGenerator('isVoid', $tagItem->isVoid(), PropertyGenerator::FLAG_PROTECTED);
 
@@ -228,13 +234,13 @@ class Generator
 
     /**
      * @param ClassGenerator $class
-     * @param TagItem $tagItem
+     * @param Tag $tagItem
      */
-    protected function addPropertyFlags(ClassGenerator $class, TagItem $tagItem)
+    protected function addPropertyFlags(ClassGenerator $class, Tag $tagItem)
     {
         $flags = [];
 
-        foreach ($tagItem->getTagAttributes() as $tagAttribute) {
+        foreach ($tagItem->getAttributes() as $tagAttribute) {
             if ($tagAttribute->isFlag()) {
                 $flags[] = $tagAttribute->getName();
             }
@@ -254,20 +260,20 @@ class Generator
 
     /**
      * @param ClassGenerator $class
-     * @param TagItem $tagItem
+     * @param Tag $tagItem
      */
-    protected function addAttributes(ClassGenerator $class, TagItem $tagItem)
+    protected function addAttributes(ClassGenerator $class, Tag $tagItem)
     {
-        foreach ($tagItem->getTagAttributes() as $tagAttribute) {
+        foreach ($tagItem->getAttributes() as $tagAttribute) {
             $this->addAttribute($class, $tagAttribute);
         }
     }
 
     /**
      * @param ClassGenerator $class
-     * @param TagAttribute $tagAttribute
+     * @param Attribute $tagAttribute
      */
-    protected function addAttribute(ClassGenerator $class, TagAttribute $tagAttribute)
+    protected function addAttribute(ClassGenerator $class, Attribute $tagAttribute)
     {
         $methodName = str_replace(':', '-', $tagAttribute->getName());
         $methodName = ucfirst($this->stringToCamelCaseConverter->convert($methodName, '-'));

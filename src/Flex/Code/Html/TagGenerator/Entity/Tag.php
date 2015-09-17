@@ -79,6 +79,11 @@ class Tag
     private $isWindowEventAware;
 
     /**
+     * @var AttributeCollection
+     */
+    private $attributes;
+
+    /**
      * @return int
      */
     public function getId()
@@ -300,5 +305,21 @@ class Tag
     public function setIsWindowEventAware($isWindowEventAware)
     {
         $this->isWindowEventAware = $isWindowEventAware;
+    }
+
+    /**
+     * @return AttributeCollection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param AttributeCollection $attributes
+     */
+    public function setAttributes(AttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
     }
 }
