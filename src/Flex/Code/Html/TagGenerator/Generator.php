@@ -83,7 +83,7 @@ class Generator
     {
         $className = ucfirst($this->stringToCamelCaseConverter->convert($tagItem->getName()));
         $class = new ClassGenerator();
-        $class->setNamespaceName('Flex\Code\Html\Tag\Element');
+        $class->setNamespaceName('Flex\Code\Html\Tag');
         $class->setName($className);
 
         $class->addUse('Flex\Code\Html\Tag\AbstractTag');
@@ -94,64 +94,64 @@ class Generator
         if ($tagItem->isGlobalAttributeAware()) {
             $implementedInterfaces[] = 'GlobalAttributeAwareInterface';
 
-            $class->addUse('Flex\Code\Html\Attribute\GlobalAttributeAwareInterface');
-            $class->addUse('Flex\Code\Html\Attribute\GlobalAttributeAwareTrait');
+            $class->addUse('Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface');
+            $class->addUse('Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait');
             $class->addTrait('GlobalAttributeAwareTrait');
         }
 
         if ($tagItem->isClipboardEventAware()) {
             $implementedInterfaces[] = 'ClipboardEventAwareInterface';
 
-            $class->addUse('Flex\Code\Html\Event\ClipboardEventAwareInterface');
-            $class->addUse('Flex\Code\Html\Event\ClipboardEventAwareTrait');
+            $class->addUse('Flex\Code\Html\Tag\Event\ClipboardEventAwareInterface');
+            $class->addUse('Flex\Code\Html\Tag\Event\ClipboardEventAwareTrait');
             $class->addTrait('ClipboardEventAwareTrait');
         }
 
         if ($tagItem->isFormEventAware()) {
             $implementedInterfaces[] = 'FormEventAwareInterface';
 
-            $class->addUse('Flex\Code\Html\Event\FormEventAwareInterface');
-            $class->addUse('Flex\Code\Html\Event\FormEventAwareTrait');
+            $class->addUse('Flex\Code\Html\Tag\Event\FormEventAwareInterface');
+            $class->addUse('Flex\Code\Html\Tag\Event\FormEventAwareTrait');
             $class->addTrait('FormEventAwareTrait');
         }
 
         if ($tagItem->isKeyboardEventAware()) {
             $implementedInterfaces[] = 'KeyboardEventAwareInterface';
 
-            $class->addUse('Flex\Code\Html\Event\KeyboardEventAwareInterface');
-            $class->addUse('Flex\Code\Html\Event\KeyboardEventAwareTrait');
+            $class->addUse('Flex\Code\Html\Tag\Event\KeyboardEventAwareInterface');
+            $class->addUse('Flex\Code\Html\Tag\Event\KeyboardEventAwareTrait');
             $class->addTrait('KeyboardEventAwareTrait');
         }
 
         if ($tagItem->isMediaEventAware()) {
             $implementedInterfaces[] = 'MediaEventAwareInterface';
 
-            $class->addUse('Flex\Code\Html\Event\MediaEventAwareInterface');
-            $class->addUse('Flex\Code\Html\Event\MediaEventAwareTrait');
+            $class->addUse('Flex\Code\Html\Tag\Event\MediaEventAwareInterface');
+            $class->addUse('Flex\Code\Html\Tag\Event\MediaEventAwareTrait');
             $class->addTrait('MediaEventAwareTrait');
         }
 
         if ($tagItem->isMiscEventAware()) {
             $implementedInterfaces[] = 'MiscEventAwareInterface';
 
-            $class->addUse('Flex\Code\Html\Event\MiscEventAwareInterface');
-            $class->addUse('Flex\Code\Html\Event\MiscEventAwareTrait');
+            $class->addUse('Flex\Code\Html\Tag\Event\MiscEventAwareInterface');
+            $class->addUse('Flex\Code\Html\Tag\Event\MiscEventAwareTrait');
             $class->addTrait('MiscEventAwareTrait');
         }
 
         if ($tagItem->isMouseEventAware()) {
             $implementedInterfaces[] = 'MouseEventAwareInterface';
 
-            $class->addUse('Flex\Code\Html\Event\MouseEventAwareInterface');
-            $class->addUse('Flex\Code\Html\Event\MouseEventAwareTrait');
+            $class->addUse('Flex\Code\Html\Tag\Event\MouseEventAwareInterface');
+            $class->addUse('Flex\Code\Html\Tag\Event\MouseEventAwareTrait');
             $class->addTrait('MouseEventAwareTrait');
         }
 
         if ($tagItem->isWindowEventAware()) {
             $implementedInterfaces[] = 'WindowEventAwareInterface';
 
-            $class->addUse('Flex\Code\Html\Event\WindowEventAwareInterface');
-            $class->addUse('Flex\Code\Html\Event\WindowEventAwareTrait');
+            $class->addUse('Flex\Code\Html\Tag\Event\WindowEventAwareInterface');
+            $class->addUse('Flex\Code\Html\Tag\Event\WindowEventAwareTrait');
             $class->addTrait('WindowEventAwareTrait');
         }
 
@@ -309,7 +309,7 @@ class Generator
     {
         $generator = new FileGenerator();
         $generator->setClass($class);
-        $generator->setFilename('src/Flex/Code/Html/Tag/Element/' . $class->getName() . '.php');
+        $generator->setFilename('src/Flex/Code/Html/Tag/' . $class->getName() . '.php');
         $generator->write();
     }
 }

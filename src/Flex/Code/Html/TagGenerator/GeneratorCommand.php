@@ -29,7 +29,7 @@ class GeneratorCommand extends Command
     protected function configure()
     {
         $this->setName('generate-tags');
-        $this->setDescription('generate tag elements');
+        $this->setDescription('generate tags');
     }
 
     /**
@@ -42,9 +42,9 @@ class GeneratorCommand extends Command
         $this->input = $input;
         $this->output = $output;
 
-        $this->output->writeln("<comment>generating elements</comment>");
+        $this->output->writeln("<comment>generating tags</comment>");
         $this->generate();
-        $this->output->writeln("<comment>generating elements, done</comment>");
+        $this->output->writeln("<comment>generating tags, done</comment>");
     }
 
     /**
