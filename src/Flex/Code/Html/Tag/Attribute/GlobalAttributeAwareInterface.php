@@ -1,36 +1,21 @@
 <?php
-namespace Flex\Code\Html\Attribute;
+namespace Flex\Code\Html\Tag\Attribute;
 
 /**
- * Class GlobalAttributeAwareTrait
+ * Interface GlobalAttributeAwareInterface
  *
  * @author Jeff Tunessen <jeff.tunessen@gmail.com>
  * @link http://www.w3schools.com/tags/ref_standardattributes.asp
  */
-trait GlobalAttributeAwareTrait
+interface GlobalAttributeAwareInterface
 {
-    /**
-     * @var array
-     */
-    protected $globalAttributes = [];
-
-    /**
-     * @var array
-     */
-    protected $globalFlags = [
-        'hidden'
-    ];
-
     /**
      * Specifies a shortcut key to activate/focus an element
      *
      * @param string $value
      * @return $this
      */
-    public function setAccesskey($value)
-    {
-        $this->globalAttributes['accesskey'] = $value;
-    }
+    public function setAccesskey($value);
 
     /**
      * Specifies one or more classnames for an element (refers to a class in a style sheet)
@@ -38,10 +23,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setClass($value)
-    {
-        $this->globalAttributes['class'] = $value;
-    }
+    public function setClass($value);
 
     /**
      * Specifies whether the content of an element is editable or not
@@ -50,10 +32,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setContenteditable($value)
-    {
-        $this->globalAttributes['contenteditable'] = $value;
-    }
+    public function setContenteditable($value);
 
     /**
      * Specifies a context menu for an element. The context menu appears when a user right-clicks on the element
@@ -62,10 +41,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setContextmenu($value)
-    {
-        $this->globalAttributes['contextmenu'] = $value;
-    }
+    public function setContextmenu($value);
 
     /**
      * Used to store custom data private to the page or application
@@ -75,10 +51,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setData($key, $value)
-    {
-        $this->globalAttributes['data-' . $key] = $value;
-    }
+    public function setData($key, $value);
 
     /**
      * Specifies the text direction for the content in an element
@@ -86,10 +59,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setDir($value)
-    {
-        $this->globalAttributes['dir'] = $value;
-    }
+    public function setDir($value);
 
     /**
      * Specifies whether an element is draggable or not
@@ -98,10 +68,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setDraggable($value)
-    {
-        $this->globalAttributes['draggable'] = $value;
-    }
+    public function setDraggable($value);
 
     /**
      * Specifies whether the dragged data is copied, moved, or linked, when dropped
@@ -110,10 +77,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setDropzone($value)
-    {
-        $this->globalAttributes['dropzone'] = $value;
-    }
+    public function setDropzone($value);
 
     /**
      * Specifies that an element is not yet, or is no longer, relevant
@@ -122,10 +86,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setHidden($value)
-    {
-        $this->globalAttributes['hidden'] = $value;
-    }
+    public function setHidden($value);
 
     /**
      * Specifies a unique id for an element
@@ -133,10 +94,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setId($value)
-    {
-        $this->globalAttributes['id'] = $value;
-    }
+    public function setId($value);
 
     /**
      * Specifies the language of the element's content
@@ -144,10 +102,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setLang($value)
-    {
-        $this->globalAttributes['lang'] = $value;
-    }
+    public function setLang($value);
 
     /**
      * Specifies whether the element is to have its spelling and grammar checked or not
@@ -156,10 +111,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setSpellcheck($value)
-    {
-        $this->globalAttributes['spellcheck'] = $value;
-    }
+    public function setSpellcheck($value);
 
     /**
      * Specifies an inline CSS style for an element
@@ -167,10 +119,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setStyle($value)
-    {
-        $this->globalAttributes['style'] = $value;
-    }
+    public function setStyle($value);
 
     /**
      * Specifies the tabbing order of an element
@@ -178,10 +127,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setTabindex($value)
-    {
-        $this->globalAttributes['tabindex'] = $value;
-    }
+    public function setTabindex($value);
 
     /**
      * Specifies extra information about an element
@@ -189,10 +135,7 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setTitle($value)
-    {
-        $this->globalAttributes['title'] = $value;
-    }
+    public function setTitle($value);
 
     /**
      * Specifies whether the content of an element should be translated or not
@@ -201,8 +144,5 @@ trait GlobalAttributeAwareTrait
      * @param string $value
      * @return $this
      */
-    public function setTranslate($value)
-    {
-        $this->globalAttributes['translate'] = $value;
-    }
+    public function setTranslate($value);
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Flex\Code\Html\Event;
+namespace Flex\Code\Html\Tag\Event;
 
 /**
  * Class ClipboardEventAwareTrait

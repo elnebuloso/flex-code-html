@@ -1,19 +1,14 @@
 <?php
-namespace Flex\Code\Html\Event;
+namespace Flex\Code\Html\Tag\Event;
 
 /**
- * Class MediaEventAwareTrait
+ * Interface MiscEventAwareInterface
  *
  * @author Jeff Tunessen <jeff.tunessen@gmail.com>
  * @link http://www.w3schools.com/tags/ref_eventattributes.asp
  */
-trait MiscEventAwareTrait
+interface MiscEventAwareInterface
 {
-    /**
-     * @var array
-     */
-    protected $miscEvents = [];
-
     /**
      * Fires when an error occurs while loading an external file
      * html5only
@@ -21,10 +16,7 @@ trait MiscEventAwareTrait
      * @param string $script
      * @return $this
      */
-    public function onerror($script)
-    {
-        $this->miscEvents['onerror'] = $script;
-    }
+    public function onerror($script);
 
     /**
      * Fires when a <menu> element is shown as a context menu
@@ -33,10 +25,7 @@ trait MiscEventAwareTrait
      * @param string $script
      * @return $this
      */
-    public function onshow($script)
-    {
-        $this->miscEvents['onshow'] = $script;
-    }
+    public function onshow($script);
 
     /**
      * Fires when the user opens or closes the <details> element
@@ -45,8 +34,5 @@ trait MiscEventAwareTrait
      * @param string $script
      * @return $this
      */
-    public function ontoggle($script)
-    {
-        $this->miscEvents['ontoggle'] = $script;
-    }
+    public function ontoggle($script);
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Flex\Code\Html\Tag;
+namespace Flex\Code\Html\Tag\Model;
 
 /**
  * Class TagInterface
