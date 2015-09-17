@@ -35,5 +35,13 @@
     },
     "bin": [
         "bin\/flex-code-html-generator"
-    ]
+    ],
+    "archive": {
+        "exclude": [
+            "/.flex-code-html",
+            "/bin",
+            "/public",
+            "/src/public/Flex/Code/Html/TagGenerator"
+        ]
+    }
 }
