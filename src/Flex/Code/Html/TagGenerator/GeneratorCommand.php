@@ -53,6 +53,8 @@ class GeneratorCommand extends Command
     protected function generate()
     {
         $tagManager = new TagManager();
+
         $generator = new Generator($tagManager->findTags());
+        $generator->generate();
     }
 }

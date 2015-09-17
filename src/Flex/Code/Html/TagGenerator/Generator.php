@@ -86,7 +86,7 @@ class Generator
         $class->setNamespaceName('Flex\Code\Html\Tag');
         $class->setName($className);
 
-        $class->addUse('Flex\Code\Html\Tag\AbstractTag');
+        $class->addUse('Flex\Code\Html\Tag\Model\AbstractTag');
         $class->setExtendedClass('AbstractTag');
 
         $implementedInterfaces = [];

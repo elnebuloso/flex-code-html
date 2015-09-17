@@ -49,7 +49,7 @@ class AttributeManager
         $total = $selectStatement->execute();
         $total = (int)$total->current();
 
-        $collection = new TagCollection();
+        $collection = new AttributeCollection();
         $collection->setTotalCount($total);
 
         foreach ($result as $row) {
