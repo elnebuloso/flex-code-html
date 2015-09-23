@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
+use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
-use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <script> tag is used to define a client-side script, such as a JavaScript.
@@ -39,7 +39,9 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = array(
+        
+    );
 
     /**
      * @var array
@@ -50,6 +52,8 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     );
 
     /**
+     * Specifies that the script is executed asynchronously (only for external scripts)
+     *
      * @var string
      * @return $this
      */
@@ -60,6 +64,8 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the character encoding used in an external script file
+     *
      * @var string
      * @return $this
      */
@@ -70,6 +76,9 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies that the script is executed when the page has finished parsing (only
+     * for external scripts)
+     *
      * @var string
      * @return $this
      */
@@ -80,6 +89,8 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the URL of an external script file
+     *
      * @var string
      * @return $this
      */
@@ -90,6 +101,8 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the media type of the script
+     *
      * @var string
      * @return $this
      */
@@ -100,6 +113,8 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Not supported in HTML5. Specifies whether whitespace in code should be preserved
+     *
      * @var string
      * @return $this
      */
@@ -108,6 +123,7 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['xml:space'] = $v;
         return $this;
     }
+
 
 }
 

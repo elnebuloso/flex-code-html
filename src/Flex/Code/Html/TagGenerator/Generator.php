@@ -297,6 +297,11 @@ class Generator
         $docBlock = new DocBlockGenerator();
         $docBlock->setTag(new GenericTag('var', 'string'));
         $docBlock->setTag(new GenericTag('return', '$this'));
+
+        if (!is_null($tagAttribute->getDescription())) {
+            $docBlock->setLongDescription($tagAttribute->getDescription());
+        }
+
         $method->setDocBlock($docBlock);
 
         $class->addMethodFromGenerator($method);

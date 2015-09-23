@@ -63,7 +63,8 @@ INSERT INTO `attribute` (`id`, `tag_id`, `name`, `description`, `default_value`,
 (40,	6,	'content',	'Gives the value associated with the http-equiv or name attribute',	NULL,	0,	0,	0),
 (41,	6,	'http-equiv',	'Provides an HTTP header for the information/value of the content attribute',	NULL,	0,	0,	0),
 (42,	6,	'name',	'Specifies a name for the metadata',	NULL,	0,	0,	0),
-(43,	6,	'scheme',	'Not supported in HTML5. Specifies a scheme to be used to interpret the value of the content attribute',	NULL,	0,	0,	0);
+(43,	6,	'scheme',	'Not supported in HTML5. Specifies a scheme to be used to interpret the value of the content attribute',	NULL,	0,	0,	0),
+(44,	6,	'property',	'NOT VALID in HTML5, only with correct doctype\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML+RDFa 1.0//EN\" \"http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd\">',	NULL,	0,	0,	0);
 
 DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag` (
@@ -93,4 +94,4 @@ INSERT INTO `tag` (`id`, `name`, `link`, `short_description`, `long_description`
 (5,	'a',	'http://www.w3schools.com/tags/tag_a.asp',	'The <a> tag defines a hyperlink, which is used to link from one page to another.',	'The most important attribute of the <a> element is the href attribute, which indicates the link\'s destination. By default, links will appear as follows in all browsers: An unvisited link is underlined and blue, A visited link is underlined and purple, An active link is underlined and red.',	0,	1,	0,	0,	0,	0,	0,	0,	0),
 (6,	'meta',	'http://www.w3schools.com/tags/tag_meta.asp',	'The <meta> tag provides metadata about the HTML document. Metadata will not be displayed on the page, but will be machine parsable.',	'Meta elements are typically used to specify page description, keywords, author of the document, last modified, and other metadata. The metadata can be used by browsers (how to display content or reload page), search engines (keywords), or other web services.',	1,	1,	0,	0,	0,	0,	0,	0,	0);
 
--- 2015-09-17 21:45:30
+-- 2015-09-23 20:46:30

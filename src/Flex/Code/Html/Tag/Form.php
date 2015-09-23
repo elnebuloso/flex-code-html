@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
+use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
-use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <form> tag is used to create an HTML form for user input.
@@ -35,14 +35,21 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = array(
+        
+    );
 
     /**
      * @var array
      */
-    protected $flags = array();
+    protected $flags = array(
+        
+    );
 
     /**
+     * Not supported in HTML5. Specifies a comma-separated list of file types  that the
+     * server accepts (that can be submitted through the file upload)
+     *
      * @var string
      * @return $this
      */
@@ -53,6 +60,8 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the character encodings that are to be used for the form submission
+     *
      * @var string
      * @return $this
      */
@@ -63,6 +72,8 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies where to send the form-data when a form is submitted
+     *
      * @var string
      * @return $this
      */
@@ -73,6 +84,8 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies whether a form should have autocomplete on or off
+     *
      * @var string
      * @return $this
      */
@@ -83,6 +96,9 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies how the form-data should be encoded when submitting it to the server
+     * (only for method="post")
+     *
      * @var string
      * @return $this
      */
@@ -93,6 +109,8 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the HTTP method to use when sending form-data
+     *
      * @var string
      * @return $this
      */
@@ -103,6 +121,8 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the name of a form
+     *
      * @var string
      * @return $this
      */
@@ -113,6 +133,8 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies that the form should not be validated when submitted
+     *
      * @var string
      * @return $this
      */
@@ -123,6 +145,9 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies where to display the response that is received after submitting the
+     * form
+     *
      * @var string
      * @return $this
      */
@@ -131,6 +156,7 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['target'] = $v;
         return $this;
     }
+
 
 }
 

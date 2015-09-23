@@ -26,6 +26,11 @@ class Attribute
     /**
      * @var string
      */
+    private $description;
+
+    /**
+     * @var string
+     */
     private $defaultValue;
 
     /**
@@ -89,6 +94,22 @@ class Attribute
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
     /**

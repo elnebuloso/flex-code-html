@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
+use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
-use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <meta> tag provides metadata about the HTML document. Metadata will not be
@@ -41,14 +41,20 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = array(
+        
+    );
 
     /**
      * @var array
      */
-    protected $flags = array();
+    protected $flags = array(
+        
+    );
 
     /**
+     * Specifies the character encoding for the HTML document
+     *
      * @var string
      * @return $this
      */
@@ -59,6 +65,8 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Gives the value associated with the http-equiv or name attribute
+     *
      * @var string
      * @return $this
      */
@@ -69,6 +77,8 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Provides an HTTP header for the information/value of the content attribute
+     *
      * @var string
      * @return $this
      */
@@ -79,6 +89,8 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies a name for the metadata
+     *
      * @var string
      * @return $this
      */
@@ -89,6 +101,11 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * NOT VALID in HTML5, only with correct doctype
+     * 
+     * <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+     * "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+     *
      * @var string
      * @return $this
      */
@@ -99,6 +116,9 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Not supported in HTML5. Specifies a scheme to be used to interpret the value of
+     * the content attribute
+     *
      * @var string
      * @return $this
      */
@@ -107,6 +127,7 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['scheme'] = $v;
         return $this;
     }
+
 
 }
 

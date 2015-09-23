@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
+use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
-use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <a> tag defines a hyperlink, which is used to link from one page to another.
@@ -40,14 +40,20 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = array(
+        
+    );
 
     /**
      * @var array
      */
-    protected $flags = array();
+    protected $flags = array(
+        
+    );
 
     /**
+     * Not supported in HTML5. Specifies the character-set of a linked document
+     *
      * @var string
      * @return $this
      */
@@ -58,6 +64,8 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Not supported in HTML5. Specifies the coordinates of a link
+     *
      * @var string
      * @return $this
      */
@@ -68,6 +76,8 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies that the target will be downloaded when a user clicks on the hyperlink
+     *
      * @var string
      * @return $this
      */
@@ -78,6 +88,8 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the URL of the page the link goes to
+     *
      * @var string
      * @return $this
      */
@@ -88,6 +100,8 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the language of the linked document
+     *
      * @var string
      * @return $this
      */
@@ -98,6 +112,8 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies what media/device the linked document is optimized for
+     *
      * @var string
      * @return $this
      */
@@ -108,6 +124,9 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Not supported in HTML5. Use the global id attribute instead. Specifies the name
+     * of an anchor
+     *
      * @var string
      * @return $this
      */
@@ -118,6 +137,8 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the relationship between the current document and the linked document
+     *
      * @var string
      * @return $this
      */
@@ -128,6 +149,9 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Not supported in HTML5. Specifies the relationship between the linked document
+     * and the current document
+     *
      * @var string
      * @return $this
      */
@@ -138,6 +162,8 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Not supported in HTML5. Specifies the shape of a link
+     *
      * @var string
      * @return $this
      */
@@ -148,6 +174,8 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies where to open the linked document
+     *
      * @var string
      * @return $this
      */
@@ -158,6 +186,8 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the media type of the linked document
+     *
      * @var string
      * @return $this
      */
@@ -166,6 +196,7 @@ class A extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['type'] = $v;
         return $this;
     }
+
 
 }
 

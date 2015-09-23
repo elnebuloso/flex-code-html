@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
+use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
-use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <link> tag defines a link between a document and an external resource.
@@ -37,14 +37,20 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = array(
+        
+    );
 
     /**
      * @var array
      */
-    protected $flags = array();
+    protected $flags = array(
+        
+    );
 
     /**
+     * Not supported in HTML5. Specifies the character encoding of the linked document.
+     *
      * @var string
      * @return $this
      */
@@ -55,6 +61,8 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies how the element handles cross-origin requests
+     *
      * @var string
      * @return $this
      */
@@ -65,6 +73,8 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the location of the linked document
+     *
      * @var string
      * @return $this
      */
@@ -75,6 +85,8 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the language of the text in the linked document
+     *
      * @var string
      * @return $this
      */
@@ -85,6 +97,8 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies on what device the linked document will be displayed
+     *
      * @var string
      * @return $this
      */
@@ -95,6 +109,9 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Required. Specifies the relationship between the current document and the linked
+     * document
+     *
      * @var string
      * @return $this
      */
@@ -105,6 +122,9 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Not supported in HTML5. Specifies the relationship between the linked document
+     * and the current document
+     *
      * @var string
      * @return $this
      */
@@ -115,6 +135,8 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the size of the linked resource. Only for rel="icon"
+     *
      * @var string
      * @return $this
      */
@@ -125,6 +147,8 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Not supported in HTML5. Specifies where the linked document is to be loaded
+     *
      * @var string
      * @return $this
      */
@@ -135,6 +159,8 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     }
 
     /**
+     * Specifies the media type of the linked document
+     *
      * @var string
      * @return $this
      */
@@ -143,6 +169,7 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['type'] = $v;
         return $this;
     }
+
 
 }
 

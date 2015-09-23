@@ -81,6 +81,7 @@ class AttributeManager
         $entity = new Attribute();
         $entity->setId((int)$row['id']);
         $entity->setName($row['name']);
+        $entity->setDescription($row['description']);
         $entity->setDefaultValue($row['default_value']);
         $entity->setIsFlag((int)$row['is_flag']);
         $entity->setIsHtml5((int)$row['is_html5']);
