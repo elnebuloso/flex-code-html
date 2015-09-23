@@ -10,7 +10,6 @@ The Goal of this Package is to create as simple and MVC independent HTML Code Re
 
 The following versions of PHP are supported by this version.
 
-* PHP 5.3
 * PHP 5.4
 * PHP 5.5
 * PHP 5.6
