@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
-use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <div> tag defines a division or a section in an HTML document.

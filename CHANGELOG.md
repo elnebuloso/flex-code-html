@@ -1,6 +1,5 @@
 # CHANGELOG
 
-## 0.0.1
+## 0.0.1, 0.0.2, 0.0.3
 
-- new Flex\Code\Html\Tag\Link
-- new Flex\Code\Html\Tag\Script
+- releasing the code

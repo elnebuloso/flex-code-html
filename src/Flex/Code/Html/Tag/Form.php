@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
-use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <form> tag is used to create an HTML form for user input.

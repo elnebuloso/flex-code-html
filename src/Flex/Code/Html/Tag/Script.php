@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
-use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <script> tag is used to define a client-side script, such as a JavaScript.
