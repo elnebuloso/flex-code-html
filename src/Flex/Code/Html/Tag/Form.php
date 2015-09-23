@@ -156,7 +156,4 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['target'] = $v;
         return $this;
     }
-
-
 }
-

@@ -102,7 +102,7 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
 
     /**
      * NOT VALID in HTML5, only with correct doctype
-     * 
+     *
      * <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
      * "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
      *
@@ -127,7 +127,4 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['scheme'] = $v;
         return $this;
     }
-
-
 }
-

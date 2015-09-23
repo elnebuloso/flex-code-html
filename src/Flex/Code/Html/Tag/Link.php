@@ -169,7 +169,4 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['type'] = $v;
         return $this;
     }
-
-
 }
-

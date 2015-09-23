@@ -51,3 +51,6 @@ Via Composer
 ``` php
 echo \Flex\Code\Html\Tag\Script::create()->setSrc('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js');
 ```
+
+#### fixing PSR Coding Standards on Generated Classes
+phpcbf src/Flex/Code/Html/ --standard=PSR1,PSR2

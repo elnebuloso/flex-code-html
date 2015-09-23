@@ -3,8 +3,9 @@ namespace Flex\Code\Html\Tag\Event;
 
 /**
  * Interface MediaEventAwareInterface
- * Events triggered by medias like videos, images and audio
- * (applies to all HTML elements, but is most common in media elements, like <audio>, <embed>, <img>, <object>, and <video>)
+ * Events triggered by medias like videos, images and audio,
+ * applies to all HTML elements, but is most common in media elements,
+ * like <audio>, <embed>, <img>, <object>, and <video>
  *
  * @author Jeff Tunessen <jeff.tunessen@gmail.com>
  * @link http://www.w3schools.com/tags/ref_eventattributes.asp
@@ -137,7 +138,8 @@ interface MediaEventAwareInterface
     public function onprogress($script);
 
     /**
-     * Script to be run each time the playback rate changes (like when a user switches to a slow motion or fast forward mode)
+     * Script to be run each time the playback rate changes
+     * (like when a user switches to a slow motion or fast forward mode)
      * html5only
      *
      * @param string $script
@@ -182,7 +184,8 @@ interface MediaEventAwareInterface
     public function onsuspend($script);
 
     /**
-     * Script to be run when the playing position has changed (like when the user fast forwards to a different point in the media)
+     * Script to be run when the playing position has changed
+     * (like when the user fast forwards to a different point in the media)
      * html5only
      *
      * @param string $script
@@ -200,7 +203,8 @@ interface MediaEventAwareInterface
     public function onvolumechange($script);
 
     /**
-     * Script to be run when the media has paused but is expected to resume (like when the media pauses to buffer more data)
+     * Script to be run when the media has paused but is expected to resume
+     * (like when the media pauses to buffer more data)
      * html5only
      *
      * @param string $script

@@ -60,7 +60,4 @@ class Div extends AbstractTag implements GlobalAttributeAwareInterface
         $this->attributes['align'] = $v;
         return $this;
     }
-
-
 }
-

@@ -188,4 +188,3 @@ class AbstractTag implements TagInterface
         return implode(' ', $flags);
     }
 }
-
