@@ -31,7 +31,7 @@ Via Composer
 ``` json
 {
     "require": {
-        "elnebuloso/flex-code-html": "~0.0"
+        "elnebuloso/flex-code-html": "~1.0"
     }
 }
 ```
@@ -45,23 +45,10 @@ Via Composer
 * the doctype e.g. decides how to close the tag (self-closing tag, void / non-void tags)
 * each tag can have children of TagInterface or String which will be rendered as the tag body (only if tag is not marked as non-void tag)
 
-### see public/examples.php for more examples
-
-### Factory
-
-``` php
-$tagFactory = new \Flex\Code\Html\TagFactory();
-$tagFactory->setDoctype(\Flex\Code\Html\TagInterface::DOCTYPE_HTML5);
-$tag = $tagFactory->create(\Flex\Code\Html\TagInterface::TAG_SCRIPT);
-```
+#### see public/examples.php for more examples
 
 ### Rendering a Tag directly
 
 ``` php
 echo \Flex\Code\Html\Tag\Script::create()->setSrc('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js');
 ```
-
-### Infos
-
-* http://www.w3schools.com/tags/default.asp
-* phpcbf src/Flex/Code/Html/ --sniffs=PSR2
