@@ -4,7 +4,7 @@
 
 ## Description
 
-The Goal of this Package is to create as simple and MVC independent HTML Code Renderer.
+The Goal of this Package is to create a simple and MVC independent HTML Code Renderer.
 
 ## Requirements
 
