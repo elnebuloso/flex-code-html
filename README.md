@@ -45,12 +45,3 @@ Via Composer
 * each tag can have children of TagInterface or String which will be rendered as the tag body (only if tag is not marked as non-void tag)
 
 #### see public/examples.php for more examples
-
-### Rendering a Tag directly
-
-``` php
-echo \Flex\Code\Html\Tag\Script::create()->setSrc('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js');
-```
-
-#### fixing PSR Coding Standards on Generated Classes
-phpcbf src/Flex/Code/Html/ --standard=PSR1,PSR2
