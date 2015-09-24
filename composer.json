@@ -4,7 +4,9 @@
     "license": "MIT",
     "description": "html code generator",
     "keywords": [
-        "components"
+        "php",
+        "html",
+        "generator"
     ],
     "authors": [
         {
