@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
-use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <meta> tag provides metadata about the HTML document. Metadata will not be
@@ -20,7 +20,6 @@ use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
  */
 class Meta extends AbstractTag implements GlobalAttributeAwareInterface
 {
-
     use GlobalAttributeAwareTrait;
 
     /**
@@ -41,16 +40,16 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array(
-        
-    );
+    protected $attributes = [
+
+    ];
 
     /**
      * @var array
      */
-    protected $flags = array(
-        
-    );
+    protected $flags = [
+
+    ];
 
     /**
      * Specifies the character encoding for the HTML document
@@ -61,6 +60,7 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     public function setCharset($v)
     {
         $this->attributes['charset'] = $v;
+
         return $this;
     }
 
@@ -73,6 +73,7 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     public function setContent($v)
     {
         $this->attributes['content'] = $v;
+
         return $this;
     }
 
@@ -85,6 +86,7 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     public function setHttpEquiv($v)
     {
         $this->attributes['http-equiv'] = $v;
+
         return $this;
     }
 
@@ -97,6 +99,7 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     public function setName($v)
     {
         $this->attributes['name'] = $v;
+
         return $this;
     }
 
@@ -112,6 +115,7 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     public function setProperty($v)
     {
         $this->attributes['property'] = $v;
+
         return $this;
     }
 
@@ -125,6 +129,7 @@ class Meta extends AbstractTag implements GlobalAttributeAwareInterface
     public function setScheme($v)
     {
         $this->attributes['scheme'] = $v;
+
         return $this;
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
-use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <link> tag defines a link between a document and an external resource.
@@ -16,7 +16,6 @@ use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
  */
 class Link extends AbstractTag implements GlobalAttributeAwareInterface
 {
-
     use GlobalAttributeAwareTrait;
 
     /**
@@ -37,16 +36,16 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array(
-        
-    );
+    protected $attributes = [
+
+    ];
 
     /**
      * @var array
      */
-    protected $flags = array(
-        
-    );
+    protected $flags = [
+
+    ];
 
     /**
      * Not supported in HTML5. Specifies the character encoding of the linked document.
@@ -57,6 +56,7 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     public function setCharset($v)
     {
         $this->attributes['charset'] = $v;
+
         return $this;
     }
 
@@ -69,6 +69,7 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     public function setCrossorigin($v)
     {
         $this->attributes['crossorigin'] = $v;
+
         return $this;
     }
 
@@ -81,6 +82,7 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     public function setHref($v)
     {
         $this->attributes['href'] = $v;
+
         return $this;
     }
 
@@ -93,6 +95,7 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     public function setHreflang($v)
     {
         $this->attributes['hreflang'] = $v;
+
         return $this;
     }
 
@@ -105,6 +108,7 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     public function setMedia($v)
     {
         $this->attributes['media'] = $v;
+
         return $this;
     }
 
@@ -118,6 +122,7 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     public function setRel($v)
     {
         $this->attributes['rel'] = $v;
+
         return $this;
     }
 
@@ -131,6 +136,7 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     public function setRev($v)
     {
         $this->attributes['rev'] = $v;
+
         return $this;
     }
 
@@ -143,6 +149,7 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     public function setSizes($v)
     {
         $this->attributes['sizes'] = $v;
+
         return $this;
     }
 
@@ -155,6 +162,7 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     public function setTarget($v)
     {
         $this->attributes['target'] = $v;
+
         return $this;
     }
 
@@ -167,6 +175,7 @@ class Link extends AbstractTag implements GlobalAttributeAwareInterface
     public function setType($v)
     {
         $this->attributes['type'] = $v;
+
         return $this;
     }
 }

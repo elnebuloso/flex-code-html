@@ -17,11 +17,11 @@ class TagManager
     public function __construct()
     {
         $this->adapter = new Adapter([
-            'driver'   => 'Pdo_Mysql',
+            'driver' => 'Pdo_Mysql',
             'database' => 'flex-code-html',
             'username' => 'root',
             'password' => '',
-            'charset'  => 'utf8'
+            'charset' => 'utf8',
         ]);
     }
 
@@ -34,7 +34,7 @@ class TagManager
         $sql = new Sql($this->adapter);
         $select = $sql->select();
         $select->from('tag');
-        $select->where(array('id' => $id));
+        $select->where(['id' => $id]);
         $select->offset(0);
         $select->limit(1);
 

@@ -45,6 +45,7 @@ class AbstractTag implements TagInterface
     public function setDoctype($doctype)
     {
         $this->doctype = $doctype;
+
         return $this;
     }
 
@@ -56,6 +57,7 @@ class AbstractTag implements TagInterface
     public function setAttribute($name, $value)
     {
         $this->attributes[$name] = $value;
+
         return $this;
     }
 
@@ -66,6 +68,7 @@ class AbstractTag implements TagInterface
     public function setAttributes(array $attributes = [])
     {
         $this->attributes = $attributes;
+
         return $this;
     }
 
@@ -76,6 +79,7 @@ class AbstractTag implements TagInterface
     public function addChild($child)
     {
         $this->children[] = $child;
+
         return $this;
     }
 

@@ -18,7 +18,7 @@ trait GlobalAttributeAwareTrait
      * @var array
      */
     protected $globalFlags = [
-        'hidden'
+        'hidden',
     ];
 
     /**

@@ -16,12 +16,12 @@ $tag->setSrc('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.j
 $tag->isAsync(true);
 $tag->isDefer(true);
 $tag->setAttribute('data-foo', '1231345');
-var_dump((string) $tag);
+var_dump((string)$tag);
 
 // instant rendering
-var_dump((string) \Flex\Code\Html\Tag\Script::create()->setSrc('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'));
-var_dump((string) \Flex\Code\Html\Tag\Script::create()->setSrc('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')->isDefer(true)->setCharset('UTF-8'));
-var_dump((string) \Flex\Code\Html\Tag\Link::create()->setHref('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css')->setRel('stylesheet'));
+var_dump((string)\Flex\Code\Html\Tag\Script::create()->setSrc('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'));
+var_dump((string)\Flex\Code\Html\Tag\Script::create()->setSrc('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')->isDefer(true)->setCharset('UTF-8'));
+var_dump((string)\Flex\Code\Html\Tag\Link::create()->setHref('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css')->setRel('stylesheet'));
 
 // adding child onto non-void elements
 $tag1 = \Flex\Code\Html\Tag\Div::create();
@@ -39,4 +39,4 @@ $tag4->addChild('foobar');
 $tag1->addChild($tag2);
 $tag2->addChild($tag3);
 $tag2->addChild($tag4);
-var_dump((string) $tag1);
+var_dump((string)$tag1);

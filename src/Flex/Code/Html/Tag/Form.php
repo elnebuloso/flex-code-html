@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
-use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <form> tag is used to create an HTML form for user input.
@@ -14,7 +14,6 @@ use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
  */
 class Form extends AbstractTag implements GlobalAttributeAwareInterface
 {
-
     use GlobalAttributeAwareTrait;
 
     /**
@@ -35,16 +34,16 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array(
-        
-    );
+    protected $attributes = [
+
+    ];
 
     /**
      * @var array
      */
-    protected $flags = array(
-        
-    );
+    protected $flags = [
+
+    ];
 
     /**
      * Not supported in HTML5. Specifies a comma-separated list of file types  that the
@@ -56,6 +55,7 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     public function setAccept($v)
     {
         $this->attributes['accept'] = $v;
+
         return $this;
     }
 
@@ -68,6 +68,7 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     public function setAcceptCharset($v)
     {
         $this->attributes['accept-charset'] = $v;
+
         return $this;
     }
 
@@ -80,6 +81,7 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     public function setAction($v)
     {
         $this->attributes['action'] = $v;
+
         return $this;
     }
 
@@ -92,6 +94,7 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     public function setAutocomplete($v)
     {
         $this->attributes['autocomplete'] = $v;
+
         return $this;
     }
 
@@ -105,6 +108,7 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     public function setEnctype($v)
     {
         $this->attributes['enctype'] = $v;
+
         return $this;
     }
 
@@ -117,6 +121,7 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     public function setMethod($v)
     {
         $this->attributes['method'] = $v;
+
         return $this;
     }
 
@@ -129,6 +134,7 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     public function setName($v)
     {
         $this->attributes['name'] = $v;
+
         return $this;
     }
 
@@ -141,6 +147,7 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     public function setNovalidate($v)
     {
         $this->attributes['novalidate'] = $v;
+
         return $this;
     }
 
@@ -154,6 +161,7 @@ class Form extends AbstractTag implements GlobalAttributeAwareInterface
     public function setTarget($v)
     {
         $this->attributes['target'] = $v;
+
         return $this;
     }
 }

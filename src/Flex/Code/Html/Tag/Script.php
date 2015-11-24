@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
-use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <script> tag is used to define a client-side script, such as a JavaScript.
@@ -18,7 +18,6 @@ use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
  */
 class Script extends AbstractTag implements GlobalAttributeAwareInterface
 {
-
     use GlobalAttributeAwareTrait;
 
     /**
@@ -39,17 +38,17 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array(
-        
-    );
+    protected $attributes = [
+
+    ];
 
     /**
      * @var array
      */
-    protected $flags = array(
+    protected $flags = [
         'async',
         'defer',
-    );
+    ];
 
     /**
      * Specifies that the script is executed asynchronously (only for external scripts)
@@ -60,6 +59,7 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     public function isAsync($v = true)
     {
         $this->attributes['async'] = $v;
+
         return $this;
     }
 
@@ -72,6 +72,7 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     public function setCharset($v)
     {
         $this->attributes['charset'] = $v;
+
         return $this;
     }
 
@@ -85,6 +86,7 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     public function isDefer($v = true)
     {
         $this->attributes['defer'] = $v;
+
         return $this;
     }
 
@@ -97,6 +99,7 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     public function setSrc($v)
     {
         $this->attributes['src'] = $v;
+
         return $this;
     }
 
@@ -109,6 +112,7 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     public function setType($v)
     {
         $this->attributes['type'] = $v;
+
         return $this;
     }
 
@@ -121,6 +125,7 @@ class Script extends AbstractTag implements GlobalAttributeAwareInterface
     public function setXmlSpace($v)
     {
         $this->attributes['xml:space'] = $v;
+
         return $this;
     }
 }

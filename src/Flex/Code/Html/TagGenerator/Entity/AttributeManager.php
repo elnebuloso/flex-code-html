@@ -17,11 +17,11 @@ class AttributeManager
     public function __construct()
     {
         $this->adapter = new Adapter([
-            'driver'   => 'Pdo_Mysql',
+            'driver' => 'Pdo_Mysql',
             'database' => 'flex-code-html',
             'username' => 'root',
             'password' => '',
-            'charset'  => 'utf8'
+            'charset' => 'utf8',
         ]);
     }
 
@@ -37,7 +37,7 @@ class AttributeManager
         $sql = new Sql($this->adapter);
         $select = $sql->select();
         $select->from('attribute');
-        $select->where(array('tag_id' => $tagId));
+        $select->where(['tag_id' => $tagId]);
         $select->offset($offset);
         $select->limit($limit);
         $select->order($order);

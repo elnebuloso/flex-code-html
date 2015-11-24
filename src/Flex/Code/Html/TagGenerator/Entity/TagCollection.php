@@ -5,5 +5,4 @@ use Flex\Collection;
 
 class TagCollection extends Collection
 {
-
 }

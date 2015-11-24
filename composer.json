@@ -1,5 +1,5 @@
 {
-    "name": "elnebuloso\/flex-code-html",
+    "name": "elnebuloso/flex-code-html",
     "type": "library",
     "license": "MIT",
     "description": "html code generator",
@@ -19,15 +19,15 @@
         "php": ">=5.4.0"
     },
     "require-dev": {
-        "elnebuloso\/flex-commons": "~2.3",
-        "elnebuloso\/flex-converter": "~2.2",
-        "symfony\/console": "~2.5",
-        "zendframework\/zend-code": "~2.5",
-        "zendframework\/zend-db": "~2.5"
+        "elnebuloso/flex-commons": "~3.0",
+        "elnebuloso/flex-converter": "~3.0",
+        "symfony/console": "~2.5",
+        "zendframework/zend-code": "~2.5",
+        "zendframework/zend-db": "~2.5"
     },
     "autoload": {
         "psr-0": {
-            "Flex\\": "src\/"
+            "Flex\\": "src/"
         }
     }
 }

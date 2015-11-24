@@ -9,7 +9,9 @@ namespace Flex\Code\Html\Tag\Model;
 interface TagInterface
 {
     const DOCTYPE_HTML4 = 'html4';
+
     const DOCTYPE_HTML5 = 'html5';
+
     const DOCTYPE_XHTML = 'xhtml';
 
     /**

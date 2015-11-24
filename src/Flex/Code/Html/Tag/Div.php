@@ -2,9 +2,9 @@
 
 namespace Flex\Code\Html\Tag;
 
-use Flex\Code\Html\Tag\Model\AbstractTag;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareInterface;
 use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
+use Flex\Code\Html\Tag\Model\AbstractTag;
 
 /**
  * The <div> tag defines a division or a section in an HTML document.
@@ -16,7 +16,6 @@ use Flex\Code\Html\Tag\Attribute\GlobalAttributeAwareTrait;
  */
 class Div extends AbstractTag implements GlobalAttributeAwareInterface
 {
-
     use GlobalAttributeAwareTrait;
 
     /**
@@ -37,16 +36,16 @@ class Div extends AbstractTag implements GlobalAttributeAwareInterface
     /**
      * @var array
      */
-    protected $attributes = array(
-        
-    );
+    protected $attributes = [
+
+    ];
 
     /**
      * @var array
      */
-    protected $flags = array(
-        
-    );
+    protected $flags = [
+
+    ];
 
     /**
      * Not supported in HTML5. Specifies the alignment of the content inside a <div>
@@ -58,6 +57,7 @@ class Div extends AbstractTag implements GlobalAttributeAwareInterface
     public function setAlign($v)
     {
         $this->attributes['align'] = $v;
+
         return $this;
     }
 }
