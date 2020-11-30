@@ -1,6 +1,6 @@
 # flex-code-html
 
-[![Build Status](https://travis-ci.org/elnebuloso/flex-code-html.svg?branch=master)](https://travis-ci.org/elnebuloso/flex-code-html)
+![abandoned](https://img.shields.io/badge/project-abandoned-red)
 
 ## Description
 
